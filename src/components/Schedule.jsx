@@ -5,7 +5,7 @@ import { Clock, MapPin, Users, Heart } from 'lucide-react';
 const Schedule = () => {
     const schedules = [
         {
-            day: 'Pra-Event (5-10 Feb 2026)',
+            day: 'Pra-Event (Oktober-Desember 2025)',
             theme: 'Wonderkindness Week',
             isHighlight: true,
             events: [
@@ -14,21 +14,30 @@ const Schedule = () => {
             ]
         },
         {
+            day: 'Pra-Event (Sabtu, 3 Januari 2026)',
+            theme: 'Wonderkindness Fun Run 5K',
+            isHighlight: true,
+            events: [
+                { time: '06.00 - 07.00', activity: 'Start - Finish Fun Run 5K', location: 'TMII' },
+                { time: '07.00 - 07.30', activity: 'Pembagian Medali dan Konsumsi', location: 'TMII' },
+                { time: '08.40 - 10.00', activity: 'Hiburan dan Materi dari Guest Star', location: 'TMII' },
+                { time: '10.30 - 12.10', activity: 'Screening Kesehatan Gratis', location: 'TMII' },
+            ]
+        },
+        {
             day: 'Hari 1 - Rabu, 11 Februari 2026',
             theme: 'Opening & Spiritual Day',
             events: [
-                { time: '07.00 - 08.30', activity: 'Grand Opening Wonderkind 2026', location: 'Main Hall' },
-                { time: '09.00 - 15.00', activity: "Wonder Qur'an (Penyisihan Umum)", location: 'Masjid Utama' },
-                { time: '13.00 - 15.00', activity: 'Internal Competitions', location: 'Classrooms' },
+                { time: '07.00 - 08.30', activity: 'Grand Opening Wonderkind 2026', location: 'Lapangan DQ 2 Putri' },
+                { time: '10.00 - 15.00', activity: 'Internal Competitions', location: 'DQ 2 Putri' },
             ]
         },
         {
             day: 'Hari 2 - Kamis, 12 Februari 2026',
             theme: 'Inspiration & Knowledge Day',
             events: [
-                { time: '08.00 - 11.30', activity: 'Wonder Talk (Tiket Umum)', location: 'Auditorium' },
-                { time: '13.00 - 15.30', activity: 'Wonder Preacher (Penyisihan)', location: 'Mini Hall' },
-                { time: '08.00 - 16.00', activity: 'Internal Sports & Arts', location: 'Sport Center' }
+                { time: '08.00 - 11.30', activity: 'Wonder Talk (Tiket Umum)', location: 'Main Stage' },
+                { time: '13.00 - 15.30', activity: 'Wonder Preacher (Tiket Umum)', location: 'Main Stage' },
             ]
         },
         {
@@ -36,9 +45,15 @@ const Schedule = () => {
             theme: 'Wonder Competition (SD) & Celebration',
             events: [
                 { time: '07.00 - 15.00', activity: 'Wonder Competition (Lomba SD Eksternal)', location: 'All Venues' },
-                { time: '08.00 - 11.00', activity: 'Wonder Preacher (Final)', location: 'Main Stage' },
                 { time: '16.00 - 17.30', activity: 'Awarding Ceremony', location: 'Main Stage' },
                 { time: '19.30 - 22.00', activity: 'Wonder Concert (Closing)', location: 'Main Stage' }
+            ]
+        },
+        {
+            day: 'Mei 2026',
+            theme: 'Konser Amal Palestina',
+            events: [
+                { time: '07.00 - 15.00', activity: 'Penggalangan hadiah untuk Palestina', location: 'Menyusul' },
             ]
         }
     ];

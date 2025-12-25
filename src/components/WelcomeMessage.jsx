@@ -9,7 +9,7 @@ const WelcomeMessage = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.8 }}
         >
-            Write in the chat what you want to create.
+            Selamat datang di website Wonderkind Festival SMPIT Darul Qur-an Mulia
         </motion.p>
     );
 };

@@ -7,17 +7,27 @@ import { useToast } from './ui/use-toast';
 
 const ProductModal = ({ product, onClose }) => {
     const [quantity, setQuantity] = useState(1);
+    const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
     const [selectedVariation, setSelectedVariation] = useState(product.variations[0]);
-    const [selectedColor, setSelectedColor] = useState(product.colors[0]);
     const { addToCart } = useCart();
     const { toast } = useToast();
+    const [displayImage, setDisplayImage] = useState(product.imgName);
+
+    const getPriceByVariation = (variation) => {
+        return product.variationPrices?.[variation] || product.price;
+    };
+    const [currentPrice, setCurrentPrice] = useState(
+        getPriceByVariation(product.variations[0])
+    );
 
     const handleAddToCart = () => {
         addToCart({
             ...product,
             selectedVariation,
-            selectedColor,
-            quantity
+            selectedSize,
+            quantity,
+            selectedImage: displayImage,
+            price: currentPrice,
         });
         toast({
             title: "Berhasil ditambahkan!",
@@ -53,7 +63,12 @@ const ProductModal = ({ product, onClose }) => {
 
                     <div className="grid md:grid-cols-2 gap-8 p-8">
                         <div className="bg-gradient-to-br from-wk-lightOrange to-wk-orange/30 rounded-2xl p-8 flex items-center justify-center">
-                            <img alt={product.name} className="w-full h-full object-cover rounded-xl mix-blend-multiply" src="https://images.unsplash.com/photo-1635865165118-917ed9e20936" />
+                            {/* <img alt={product.name} className="w-full h-full object-cover rounded-xl mix-blend-multiply" src={process.env.PUBLIC_URL + '/img/merch/' + product.imgName} /> */}
+                            <img
+                                alt={product.name}
+                                className="w-full h-full object-contain rounded-xl"
+                                src={process.env.PUBLIC_URL + '/img/merch/' + displayImage}
+                            />
                         </div>
 
                         <div className="space-y-6">
@@ -63,23 +78,25 @@ const ProductModal = ({ product, onClose }) => {
                             </div>
 
                             <div className="text-3xl font-bold text-wk-red">
-                                Rp {product.price.toLocaleString('id-ID')}
+                                Rp {currentPrice.toLocaleString('id-ID')}
                             </div>
 
-                            {product.variations.length > 1 && (
+                            {product.sizes.length > 1 && (
                                 <div>
-                                    <p className="font-semibold text-gray-700 mb-3">Pilih Ukuran/Variasi:</p>
+                                    <p className="font-semibold text-gray-700 mb-3">Pilih Ukuran:</p>
                                     <div className="flex flex-wrap gap-2">
-                                        {product.variations.map((variation) => (
+                                        {product.sizes.map((size) => (
                                             <button
-                                                key={variation}
-                                                onClick={() => setSelectedVariation(variation)}
-                                                className={`px-4 py-2 rounded-lg border-2 transition-all ${selectedVariation === variation
+                                                key={size}
+                                                onClick={() =>
+                                                    setSelectedSize(size)
+                                                }
+                                                className={`px-4 py-2 rounded-lg border-2 transition-all ${selectedSize === size
                                                     ? 'border-wk-red bg-wk-red text-wk-white'
                                                     : 'border-gray-300 hover:border-wk-red hover:text-wk-red'
                                                     }`}
                                             >
-                                                {variation}
+                                                {size}
                                             </button>
                                         ))}
                                     </div>
@@ -87,18 +104,24 @@ const ProductModal = ({ product, onClose }) => {
                             )}
 
                             <div>
-                                <p className="font-semibold text-gray-700 mb-3">Pilih Warna:</p>
+                                <p className="font-semibold text-gray-700 mb-3">Pilih Design:</p>
                                 <div className="flex flex-wrap gap-2">
-                                    {product.colors.map((color) => (
+                                    {product.variations.map((variation) => (
                                         <button
-                                            key={color}
-                                            onClick={() => setSelectedColor(color)}
-                                            className={`px-4 py-2 rounded-lg border-2 transition-all ${selectedColor === color
+                                            key={variation}
+                                            onClick={() => {
+                                                setSelectedVariation(variation);
+                                                if (product.variationImages?.[variation]) {
+                                                    setDisplayImage(product.variationImages[variation]);
+                                                }
+                                                setCurrentPrice(getPriceByVariation(variation));
+                                            }}
+                                            className={`px-4 py-2 rounded-lg border-2 transition-all ${selectedVariation === variation
                                                 ? 'border-wk-red bg-wk-red text-wk-white'
                                                 : 'border-gray-300 hover:border-wk-red hover:text-wk-red'
                                                 }`}
                                         >
-                                            {color}
+                                            {variation}
                                         </button>
                                     ))}
                                 </div>
@@ -131,7 +154,7 @@ const ProductModal = ({ product, onClose }) => {
                                 <div className="flex items-center justify-between mb-4">
                                     <span className="text-gray-600">Total:</span>
                                     <span className="text-2xl font-bold text-wk-red">
-                                        Rp {(product.price * quantity).toLocaleString('id-ID')}
+                                        Rp {(currentPrice * quantity).toLocaleString('id-ID')}
                                     </span>
                                 </div>
                                 <Button

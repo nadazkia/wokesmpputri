@@ -22,6 +22,13 @@ const ProductCard = ({ product, index, onSelect }) => {
         });
     };
 
+    const getDisplayPrice = (product) => {
+        if (product.variationPrices) {
+            return Math.min(...Object.values(product.variationPrices));
+        }
+        return product.price;
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -33,7 +40,7 @@ const ProductCard = ({ product, index, onSelect }) => {
             onClick={() => onSelect(product)}
         >
             <div className="relative h-64 bg-gradient-to-br from-wk-lightOrange to-wk-orange/30 flex items-center justify-center p-6 overflow-hidden">
-                <img alt={product.name} className="w-full h-full object-cover rounded-lg mix-blend-multiply" src="https://images.unsplash.com/photo-1635865165118-917ed9e20936" />
+                <img alt={product.name} className="w-full h-full rounded-lg mix-blend-multiply" src={process.env.PUBLIC_URL + '/img/merch/' + product.imgName} />
                 <div className="absolute top-4 right-4">
                     <Button
                         size="icon"
@@ -53,15 +60,15 @@ const ProductCard = ({ product, index, onSelect }) => {
                 <p className="text-gray-600 text-sm mb-4 line-clamp-2">{product.description}</p>
                 <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold text-wk-red">
-                        Rp {product.price.toLocaleString('id-ID')}
+                        Rp {getDisplayPrice(product).toLocaleString('id-ID')}
                     </span>
                     <Button
-                        onClick={handleAddToCart}
+                        onClick={() => onSelect(product)}
                         className="bg-wk-red hover:bg-wk-darkRed rounded-xl"
                         size="sm"
                     >
                         <ShoppingCart className="w-4 h-4 mr-2" />
-                        Beli
+                        Buka
                     </Button>
                 </div>
             </div>

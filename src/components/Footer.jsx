@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Instagram, Facebook, Twitter, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -39,15 +39,17 @@ const Footer = () => {
                         <div className="space-y-3">
                             <div className="flex items-start">
                                 <MapPin className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-wk-gold" />
-                                <span className="text-wk-white/80 text-sm">SMPIT Darul Qur'an Mulia, Gunung Sindur, Bogor</span>
+                                <span className="text-wk-white/80 text-sm">SMPIT Darul Qur-an Mulia, Gunung Sindur, Bogor</span>
                             </div>
                             <div className="flex items-start">
                                 <Mail className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-wk-gold" />
-                                <span className="text-wk-white/80 text-sm">info@wonderkindfestival.com</span>
+                                <span className="text-wk-white/80 text-sm">wokesmpputri@dqm.sch.id</span>
                             </div>
                             <div className="flex items-start">
                                 <Phone className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-wk-gold" />
-                                <span className="text-wk-white/80 text-sm">0812-3456-7890</span>
+                                <a href="http://wa.me/62895622984364" target="_blank" rel="noopener noreferrer" className=' block text-wk-white/80 hover:text-wk-gold transition-colors'>
+                                    <span className="text-sm">0895-6229-84364</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -56,36 +58,12 @@ const Footer = () => {
                         <span className="font-semibold text-lg mb-4 block text-wk-gold">Media Sosial</span>
                         <div className="flex gap-3">
                             <a
-                                href="https://instagram.com/wonderkindfestival"
+                                href="https://instagram.com/wokefest.smpputri"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 bg-wk-white/10 rounded-lg flex items-center justify-center hover:bg-wk-gold hover:text-wk-darkRed transition-colors"
                             >
                                 <Instagram className="w-5 h-5" />
-                            </a>
-                            <a
-                                href="https://facebook.com/wonderkindfestival"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 bg-wk-white/10 rounded-lg flex items-center justify-center hover:bg-wk-gold hover:text-wk-darkRed transition-colors"
-                            >
-                                <Facebook className="w-5 h-5" />
-                            </a>
-                            <a
-                                href="https://twitter.com/wonderkindfest"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 bg-wk-white/10 rounded-lg flex items-center justify-center hover:bg-wk-gold hover:text-wk-darkRed transition-colors"
-                            >
-                                <Twitter className="w-5 h-5" />
-                            </a>
-                            <a
-                                href="https://youtube.com/wonderkindfestival"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 bg-wk-white/10 rounded-lg flex items-center justify-center hover:bg-wk-gold hover:text-wk-darkRed transition-colors"
-                            >
-                                <Youtube className="w-5 h-5" />
                             </a>
                         </div>
                     </div>

@@ -7,10 +7,10 @@ const CompetitionDetails = () => {
             icon: MapPin,
             title: 'Lokasi & Waktu',
             items: [
-                'Lokasi: SMPIT Darul Qur\'an Mulia',
+                'Lokasi: SMPIT Darul Qur-an Mulia',
                 'Timeline Utama: 11-13 Februari 2026',
                 'Lomba Eksternal (SD): 13 Februari 2026',
-                'Pra-Event: 5-10 Februari 2026',
+                'Pra-Event: Oktober-Desember 2025',
                 'Technical Meeting: 5 Februari 2026'
             ]
         },
@@ -19,7 +19,7 @@ const CompetitionDetails = () => {
             title: 'Syarat Peserta',
             items: [
                 'Siswa/i Sekolah Dasar (SD/MI)',
-                'Membawa Kartu Pelajar/Surat Ket. Sekolah',
+                'Membawa Surat Ket. Sekolah',
                 'Sehat jasmani dan rohani',
                 'Mengisi formulir pendaftaran',
                 'Membayar biaya registrasi lomba'
@@ -32,18 +32,16 @@ const CompetitionDetails = () => {
                 'Tersedia untuk Masyarakat Umum',
                 'Akses ke Wonder Talk (12 Feb)',
                 'Akses ke Wonder Qur\'an (11 Feb)',
-                'Akses ke Concert (13 Feb)',
-                'Pembelian via Website/OTS'
+                'Pembelian via Website'
             ]
         },
         {
             icon: Award,
             title: 'Hadiah & Apresiasi',
             items: [
-                'Total Hadiah Puluhan Juta Rupiah',
+                'Total Hadiah 20+ Juta Rupiah',
                 'Trophy Juara 1, 2, 3',
-                'Sertifikat Tingkat Nasional',
-                'Piala Bergilir Wonderkind',
+                'Sertifikat Peserta',
                 'Merchandise Eksklusif'
             ]
         }

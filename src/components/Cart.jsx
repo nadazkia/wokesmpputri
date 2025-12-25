@@ -21,7 +21,7 @@ const Cart = () => {
             return;
         }
 
-        const message = `Halo! Saya ingin memesan:\n\n${cartItems
+        const message = `Assalamu'alaikum, saya ingin memesan:\n\n${cartItems
             .map(
                 (item) =>
                     `${item.quantity}x ${item.name} (${item.selectedVariation}, ${item.selectedColor}) - Rp ${(
@@ -85,7 +85,17 @@ const Cart = () => {
                                             className="bg-gray-50 rounded-xl p-4 border border-gray-200"
                                         >
                                             <div className="flex gap-4">
-                                                <div className="w-20 h-20 bg-gradient-to-br from-wk-lightOrange to-wk-orange/30 rounded-lg flex-shrink-0"></div>
+                                                <div className="w-20 h-20 bg-gradient-to-br from-wk-lightOrange to-wk-orange/30 rounded-lg flex-shrink-0 overflow-hidden">
+                                                    <img
+                                                        src={
+                                                            process.env.PUBLIC_URL +
+                                                            '/img/merch/' +
+                                                            (item.selectedImage || item.imgName)
+                                                        }
+                                                        alt={item.name}
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                </div>
                                                 <div className="flex-1 min-w-0">
                                                     <h3 className="font-semibold text-gray-900 truncate">{item.name}</h3>
                                                     <p className="text-sm text-gray-600">

@@ -54,7 +54,24 @@ const CTA = () => {
                     <div className="mt-12 pt-8 border-t border-wk-white/20">
                         <p className="text-wk-lightOrange mb-4">Ikuti kami di media sosial untuk update terbaru!</p>
                         <div className="flex justify-center gap-4">
-                            {['Instagram', 'Facebook', 'Twitter', 'YouTube'].map((social) => (
+                            <Button
+                                key="Instagram"
+                                variant="ghost"
+                                className="text-wk-white hover:bg-wk-white/10 rounded-full hover:text-wk-gold"
+                                onClick={() => window.open(`https://instagram.com/wokefest.smpputri`, '_blank')}
+                            >
+                                Instagram
+                            </Button>
+                            <Button
+                                key="Tiktok"
+                                variant="ghost"
+                                className="text-wk-white hover:bg-wk-white/10 rounded-full hover:text-wk-gold"
+                                onClick={() => window.open(`https://www.tiktok.com/@wokefest.smputri`, '_blank')}
+                            >
+                                Tiktok
+                            </Button>
+
+                            {/* {['Instagram', 'Tiktok', 'YouTube'].map((social) => (
                                 <Button
                                     key={social}
                                     variant="ghost"
@@ -63,7 +80,7 @@ const CTA = () => {
                                 >
                                     {social}
                                 </Button>
-                            ))}
+                            ))} */}
                         </div>
                     </div>
                 </motion.div>

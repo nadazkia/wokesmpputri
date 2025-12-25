@@ -10,7 +10,8 @@ const Categories = () => {
             icon: Music,
             description: 'Kompetisi musik tradisional angklung tingkat SD dengan harmonisasi yang memukau',
             participants: 'Tim Sekolah Dasar',
-            color: 'from-wk-red to-wk-darkRed'
+            color: 'from-wk-red to-wk-darkRed',
+            formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScqt0Ltag8U161Xs9TEWN7GCpXftpSkC2GdWbK7NKYsSKyhUw/viewform?usp=pp_url&entry.580535696='
         },
         {
             id: 'mini-soccer',
@@ -18,7 +19,8 @@ const Categories = () => {
             icon: Dribbble,
             description: 'Turnamen sepak bola mini untuk siswa SD dengan semangat sportivitas tinggi',
             participants: 'Tim Sekolah Dasar',
-            color: 'from-wk-orange to-wk-red'
+            color: 'from-wk-orange to-wk-red',
+            formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScqt0Ltag8U161Xs9TEWN7GCpXftpSkC2GdWbK7NKYsSKyhUw/viewform?usp=pp_url&entry.580535696='
         },
         {
             id: 'paint-rumble',
@@ -26,7 +28,8 @@ const Categories = () => {
             icon: Palette,
             description: 'Lomba melukis tingkat SD dengan tema "Karsa Cendekia"',
             participants: 'Individu SD',
-            color: 'from-wk-gold to-wk-orange'
+            color: 'from-wk-gold to-wk-orange',
+            formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScqt0Ltag8U161Xs9TEWN7GCpXftpSkC2GdWbK7NKYsSKyhUw/viewform?usp=pp_url&entry.580535696='
         },
         {
             id: 'cultural-flow',
@@ -34,7 +37,8 @@ const Categories = () => {
             icon: Sparkles,
             description: 'Kompetisi tari kreasi daerah untuk siswa SD, melestarikan budaya bangsa',
             participants: 'Tim Sekolah Dasar',
-            color: 'from-wk-darkRed to-purple-900'
+            color: 'from-wk-darkRed to-purple-900',
+            formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScqt0Ltag8U161Xs9TEWN7GCpXftpSkC2GdWbK7NKYsSKyhUw/viewform?usp=pp_url&entry.580535696='
         }
     ];
 

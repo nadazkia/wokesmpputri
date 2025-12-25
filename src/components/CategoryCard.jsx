@@ -8,8 +8,11 @@ const CategoryCard = ({ category, index }) => {
     // const { toast } = useToast();
 
     const handleRegister = () => {
-        const element = document.getElementById('register-form');
-        element?.scrollIntoView({ behavior: 'smooth' });
+        // const element = document.getElementById('register-form');
+        // element?.scrollIntoView({ behavior: 'smooth' });
+
+        const url = category.formUrl + encodeURIComponent(category.name);
+        window.open(url, '_blank');
     };
 
     return (

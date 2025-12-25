@@ -22,17 +22,17 @@ const About = () => {
         {
             icon: BookOpen,
             title: "Wonder Qur'an",
-            description: "Kompetisi hafalan Al-Qur'an yang syahdu. Tiket penonton tersedia untuk umum."
+            description: "Kajian Qur'an bersama penghafal Quran untuk menambah wawasan dan motivasi terhadap Al-Qur'an. Tiket penonton tersedia untuk umum."
         },
-        {
-            icon: Mic,
-            title: 'Wonder Preacher',
-            description: "Lomba da'i cilik dan pidato inspiratif. Dibuka untuk penonton umum dengan tiket."
-        },
+        // {
+        //     icon: Mic,
+        //     title: 'Wonder Preacher',
+        //     description: "Lomba da'i cilik dan pidato inspiratif. Dibuka untuk penonton umum dengan tiket."
+        // },
         {
             icon: Music,
             title: 'Wonder Concert',
-            description: 'Konser penutup spektakuler pada malam puncak 13 Februari 2026.'
+            description: 'Konser Amal spektakuler yang akan dilaksanakan pada bulan Mei 2026.'
         }
     ];
 
@@ -53,9 +53,9 @@ const About = () => {
                     <h2 className="text-4xl md:text-5xl font-bold text-wk-red mb-4">
                         Tentang Wonderkind Festival 2026
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-                        Dengan semangat "Karsa Cendekia, Wujudkan Lokasamgraha", festival ini hadir selama 3 hari pada 11-13 Februari 2026.
-                        Wonder Competition untuk tingkat SD akan dilaksanakan khusus pada tanggal 13 Februari 2026.
+                    <p className="text-lg text-gray-600 max-w-4xl mx-auto mb-8">
+                        Wonderkind Festival merupakan acara tahunan Pesantren Terpadu Darul Qur’an Mulia. Wonderkind Festival di unit SMP pertama kali dilaksanakan tahun 2024.
+                        Dengan semangat "Karsa Cendekia, Wujudkan Lokasamgraha", festival ini kembali hadir selama 3 hari pada 11-13 Februari 2026.
                     </p>
                 </motion.div>
 

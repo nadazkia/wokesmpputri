@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import { Toaster } from "./components/ui/toaster";
 import Cart from "./components/Cart";
 import { CartProvider } from "./context/CartContext";
+// import WelcomeMessage from "./components/WelcomeMessage";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <div className="min-h-screen bg-white">
         <Navbar />
         <Hero />
+        {/* <WelcomeMessage /> */}
         <About />
         <Categories />
         <CompetitionDetails />
