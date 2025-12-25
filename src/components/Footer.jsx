@@ -10,8 +10,10 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                     <div>
                         <div className="flex items-center space-x-2 mb-4">
-                            <div className="w-10 h-10 bg-wk-white rounded-lg flex items-center justify-center">
-                                <span className="text-wk-red font-bold text-xl">W</span>
+                            <div className="w-10 h-10 bg-wk-white rounded-full flex items-center justify-center">
+                                <img alt="Profile" className="object-cover mix-blend-multiply" src={process.env.PUBLIC_URL + '/img/Profile.png'} />
+
+                                {/* <span className="text-wk-red font-bold text-xl">W</span> */}
                             </div>
                             <span className="text-xl font-bold">Wonderkind Festival</span>
                         </div>

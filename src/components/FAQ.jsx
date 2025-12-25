@@ -16,15 +16,15 @@ const FAQ = () => {
         },
         {
             question: 'Apakah masyarakat umum bisa menonton acara?',
-            answer: 'Ya! Kami membuka penjualan tiket untuk masyarakat umum yang ingin menyaksikan Wonder Talk (12 Feb), Wonder Qur\'an (11 Feb), dan Wonder Concert (13 Feb).'
+            answer: 'Ya! Kami membuka penjualan tiket untuk masyarakat umum yang ingin menyaksikan Wonder Talk (12 Feb), Wonder Qur-an (12 Feb), dan Wonder Concert (Mei 2026).'
         },
         {
             question: 'Apa itu Wonderkindness?',
-            answer: 'Wonderkindness adalah pra-event (5-10 Feb) dengan konsep berbagi kepada masyarakat. Ini adalah wujud inisiatif dan empati kemanusiaan peserta.'
+            answer: 'Wonderkindness adalah pra-event  dengan konsep berbagi kepada masyarakat. Ini adalah wujud inisiatif dan empati kemanusiaan. Kegiatan Wonderkindness telah dilakukan pada bulan Oktober dan Desember dengan berbagi kebahagiaan dengan beberapa Panti Asuhan. Kegiatan kemanusiaan untuk Sumatera pada Bulan Januari sekaligus Fun Run 5K berlokasi di TMII '
         },
         {
             question: 'Dimana lokasi Wonderkind Festival?',
-            answer: 'Seluruh rangkaian acara dilaksanakan di SMPIT Darul Qur\'an Mulia, Gunung Sindur, Bogor.'
+            answer: 'Seluruh rangkaian acara dilaksanakan di SMPIT Darul Qur-an Mulia, Gunung Sindur, Bogor.'
         },
         {
             question: 'Bagaimana cara mendaftar lomba untuk sekolah?',
