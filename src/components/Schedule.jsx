@@ -9,14 +9,13 @@ const Schedule = () => {
             theme: 'Wonderkindness Week',
             isHighlight: true,
             events: [
-                { time: 'Fleksibel', activity: 'Implementasi & Inisiatif Sosial', location: 'Masyarakat Sekitar' },
-                { time: 'Fleksibel', activity: 'Penyaluran Bantuan & Empati', location: 'Lokasi Target Sosial' },
+                { time: 'Fleksibel', activity: 'Implementasi & Inisiatif Sosial', location: 'Gunung Sindur' },
+                { time: 'Fleksibel', activity: 'Penyaluran Bantuan & Empati', location: 'Gunung Sindur' },
             ]
         },
         {
             day: 'Pra-Event (Sabtu, 3 Januari 2026)',
             theme: 'Wonderkindness Fun Run 5K',
-            isHighlight: true,
             events: [
                 { time: '06.00 - 07.00', activity: 'Start - Finish Fun Run 5K', location: 'TMII' },
                 { time: '07.00 - 07.30', activity: 'Pembagian Medali dan Konsumsi', location: 'TMII' },
@@ -26,10 +25,10 @@ const Schedule = () => {
         },
         {
             day: 'Hari 1 - Rabu, 11 Februari 2026',
-            theme: 'Opening & Spiritual Day',
+            theme: 'Opening & Internal Competitions',
             events: [
-                { time: '07.00 - 08.30', activity: 'Grand Opening Wonderkind 2026', location: 'Lapangan DQ 2 Putri' },
-                { time: '10.00 - 15.00', activity: 'Internal Competitions', location: 'DQ 2 Putri' },
+                { time: '07.00 - 08.30', activity: 'Grand Opening Wonderkind 2026', location: 'Main Stage' },
+                { time: '10.00 - 15.00', activity: 'Internal Competitions', location: 'All Venues' },
             ]
         },
         {
@@ -46,14 +45,14 @@ const Schedule = () => {
             events: [
                 { time: '07.00 - 15.00', activity: 'Wonder Competition (Lomba SD Eksternal)', location: 'All Venues' },
                 { time: '16.00 - 17.30', activity: 'Awarding Ceremony', location: 'Main Stage' },
-                { time: '19.30 - 22.00', activity: 'Wonder Concert (Closing)', location: 'Main Stage' }
+                { time: '19.30 - 22.00', activity: 'Grand Closing Wonderkind 2026', location: 'Main Stage' }
             ]
         },
         {
             day: 'Mei 2026',
             theme: 'Konser Amal Palestina',
             events: [
-                { time: '07.00 - 15.00', activity: 'Penggalangan hadiah untuk Palestina', location: 'Menyusul' },
+                { time: '07.00 - 15.00', activity: 'Penggalangan hadiah untuk Palestina', location: 'On Progress' },
             ]
         }
     ];

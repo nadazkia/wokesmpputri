@@ -7,6 +7,7 @@ import Categories from "./components/Categories";
 import CompetitionDetails from "./components/CompetitionDetails";
 import Schedule from "./components/Schedule";
 import Merchandise from "./components/Merchandise";
+// import SponsorSection from "./components/SponsorSection";
 import FAQ from "./components/FAQ";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
@@ -37,6 +38,7 @@ function App() {
         <CompetitionDetails />
         <Schedule />
         <Merchandise />
+        {/* <SponsorSection /> */}
         <FAQ />
         <CTA />
         <Footer />

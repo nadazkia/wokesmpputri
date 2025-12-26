@@ -33,6 +33,9 @@ const Navbar = () => {
         name: 'Merchandise',
         href: '#merchandise'
     }, {
+        name: 'Sponsor',
+        href: '#sponsor'
+    }, {
         name: 'FAQ',
         href: '#faq'
     }];

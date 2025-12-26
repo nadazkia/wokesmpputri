@@ -35,7 +35,7 @@ const Hero = () => {
                 >
                     <div className="bg-wk-white/10 backdrop-blur-sm border border-wk-white/20 rounded-full px-6 py-2 flex items-center space-x-2">
                         <Sparkles className="w-5 h-5 text-wk-gold" />
-                        <span className="text-wk-white font-medium">11-13 Februari 2026 • SMPIT Darul Qur'an Mulia</span>
+                        <span className="text-wk-white font-medium">11-13 Februari 2026 • SMPIT Darul Qur-an Mulia</span>
                     </div>
                 </motion.div>
 
@@ -65,7 +65,7 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="text-lg md:text-xl text-wk-white/90 mb-12 max-w-3xl mx-auto"
                 >
-                    Event akbar 3 hari (11-13 Feb)! Kompetisi tingkat SD dilaksanakan khusus 13 Februari. Hadir dengan 20+ lomba internal dan panggung inspirasi untuk umum.
+                    Event akbar 3 hari (11-13 Feb)! Kompetisi tingkat SD dilaksanakan khusus 13 Februari. Hadir dengan lebih dari 20 lomba internal dan panggung inspirasi untuk umum.
                 </motion.p>
 
                 <motion.div
@@ -100,8 +100,16 @@ const Hero = () => {
                 >
                     <div className="flex flex-wrap justify-center gap-8 text-wk-white">
                         <div className="text-center">
+                            <p className="text-4xl font-bold text-wk-gold">1000+</p>
+                            <p className="text-wk-lightOrange">Audiences</p>
+                        </div>
+                        <div className="text-center">
                             <p className="text-4xl font-bold text-wk-gold">13 Feb</p>
                             <p className="text-wk-lightOrange">Lomba SD</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="text-4xl font-bold text-wk-gold">60+</p>
+                            <p className="text-wk-lightOrange">Sekolah Terdaftar</p>
                         </div>
                         <div className="text-center">
                             <p className="text-4xl font-bold text-wk-gold">3 Hari</p>

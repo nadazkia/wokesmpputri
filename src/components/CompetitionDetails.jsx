@@ -9,7 +9,7 @@ const CompetitionDetails = () => {
             items: [
                 'Lokasi: SMPIT Darul Qur-an Mulia',
                 'Timeline Utama: 11-13 Februari 2026',
-                'Lomba Eksternal (SD): 13 Februari 2026',
+                'Lomba SD: 13 Februari 2026',
                 'Pra-Event: Oktober-Desember 2025',
                 'Technical Meeting: 5 Februari 2026'
             ]
@@ -31,7 +31,7 @@ const CompetitionDetails = () => {
             items: [
                 'Tersedia untuk Masyarakat Umum',
                 'Akses ke Wonder Talk (12 Feb)',
-                'Akses ke Wonder Qur\'an (11 Feb)',
+                'Akses ke Wonder Qur-an (11 Feb)',
                 'Pembelian via Website'
             ]
         },
@@ -48,7 +48,7 @@ const CompetitionDetails = () => {
     ];
 
     return (
-        <section className="py-20 bg-gradient-to-b from-wk-lightOrange/20 to-wk-white">
+        <section className="py-20 bg-gradient-to-b from-wk-white via-wk-lightOrange/20 to-wk-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

@@ -24,7 +24,7 @@ const Cart = () => {
         const message = `Assalamu'alaikum, saya ingin memesan:\n\n${cartItems
             .map(
                 (item) =>
-                    `${item.quantity}x ${item.name} (${item.selectedVariation}, ${item.selectedColor}) - Rp ${(
+                    `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp ${(
                         item.price * item.quantity
                     ).toLocaleString('id-ID')}`
             )

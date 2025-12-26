@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Newspaper } from 'lucide-react';
 // import { useToast } from './ui/use-toast';
 
 const CategoryCard = ({ category, index }) => {
@@ -12,6 +12,10 @@ const CategoryCard = ({ category, index }) => {
         // element?.scrollIntoView({ behavior: 'smooth' });
 
         const url = category.formUrl + encodeURIComponent(category.name);
+        window.open(url, '_blank');
+    };
+    const handleBook = () => {
+        const url = category.bookUrl;
         window.open(url, '_blank');
     };
 
@@ -35,13 +39,23 @@ const CategoryCard = ({ category, index }) => {
                     <span className="font-semibold text-wk-orange">Peserta:</span>
                     <span className="ml-2">{category.participants}</span>
                 </div>
-                <Button
-                    onClick={handleRegister}
-                    className="w-full bg-wk-red hover:bg-wk-darkRed text-wk-white rounded-xl group"
-                >
-                    Daftar {category.name}
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <div className="flex items-center text-sm text-gray-500 mb-6 gap-4">
+                    <Button
+                        onClick={handleBook}
+                        className="w-full bg-wk-red hover:bg-wk-darkRed text-wk-white rounded-xl group"
+                    >
+                        Rulebook
+                        <Newspaper className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+
+                    <Button
+                        onClick={handleRegister}
+                        className="w-full bg-wk-red hover:bg-wk-darkRed text-wk-white rounded-xl group"
+                    >
+                        Daftar
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                </div>
             </div>
         </motion.div>
     );

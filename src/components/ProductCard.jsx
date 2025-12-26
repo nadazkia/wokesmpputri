@@ -68,7 +68,7 @@ const ProductCard = ({ product, index, onSelect }) => {
                         size="sm"
                     >
                         <ShoppingCart className="w-4 h-4 mr-2" />
-                        Buka
+                        Beli
                     </Button>
                 </div>
             </div>

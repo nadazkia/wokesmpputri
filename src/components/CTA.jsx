@@ -44,7 +44,7 @@ const CTA = () => {
                             size="lg"
                             variant="outline"
                             className="bg-transparent border-2 border-wk-white text-wk-white hover:bg-wk-white hover:text-wk-darkRed text-lg px-8 py-6 rounded-full font-semibold transition-all"
-                            onClick={() => window.open('mailto:info@wonderkindfestival.com', '_blank')}
+                            onClick={() => window.open('mailto:wokesmpputri@dqm.sch.id', '_blank')}
                         >
                             <Mail className="mr-2 w-5 h-5" />
                             Hubungi Kami

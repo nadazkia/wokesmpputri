@@ -11,7 +11,7 @@ const Footer = () => {
                     <div>
                         <div className="flex items-center space-x-2 mb-4">
                             <div className="w-10 h-10 bg-wk-white rounded-full flex items-center justify-center">
-                                <img alt="Profile" className="object-cover mix-blend-multiply" src={process.env.PUBLIC_URL + '/img/Profile.png'} />
+                                <img alt="Profile" className="object-cover mix-blend-multiply" src={process.env.PUBLIC_URL + '/img/Profile.PNG'} />
 
                                 {/* <span className="text-wk-red font-bold text-xl">W</span> */}
                             </div>
@@ -41,7 +41,9 @@ const Footer = () => {
                         <div className="space-y-3">
                             <div className="flex items-start">
                                 <MapPin className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-wk-gold" />
-                                <span className="text-wk-white/80 text-sm">SMPIT Darul Qur-an Mulia, Gunung Sindur, Bogor</span>
+                                <a href="http://google.maps/" target="_blank" rel="noopener noreferrer" className=' block text-wk-white/80 hover:text-wk-gold transition-colors'>
+                                    <span className="text-sm">SMPIT Darul Qur-an Mulia, Pabuaran, Gunung Sindur, Kab. Bogor</span>
+                                </a>
                             </div>
                             <div className="flex items-start">
                                 <Mail className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-wk-gold" />

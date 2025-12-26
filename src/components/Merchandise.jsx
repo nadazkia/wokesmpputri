@@ -78,10 +78,10 @@ const Merchandise = () => {
         },
         {
             id: 5,
-            name: 'Sticker Vinyl',
+            name: 'Sticker Buy 1 Get 1',
             price: 8000,
             image: 'Sticker with Wonderkind Festival cover design',
-            description: 'Sticker dengan design eksklusif dan kertas berkualitas',
+            description: 'Sticker beli 1 gratis 1 (design random) dengan kertas berkualitas berbahan vinyl',
             sizes: ['Standard'],
             variations: ['D1', 'D2', 'D3', 'D4'],
             variationImages: {
@@ -129,7 +129,7 @@ const Merchandise = () => {
             name: 'Buttonpin Set',
             price: 12000,
             image: 'Set of collectible button pins with various designs',
-            description: 'Set pin koleksi dengan berbagai desain menarik',
+            description: 'Set pin koleksi dengan berbagai desain menarik sebagai hiasan ataupun hadiah untuk sahabatmu ',
             sizes: ['Standard'],
             variations: ['D1', 'D2', 'D3', 'D4'],
             variationImages: {
@@ -139,11 +139,31 @@ const Merchandise = () => {
                 D4: 'Buttonpin-D4.png',
             },
             imgName: 'Buttonpin.png'
+        },
+        {
+            id: 9,
+            name: 'Tiket Umum',
+            image: 'Ticket for join the Wonderkind Festival',
+            description: 'Ikut keseruan kegiatan Wonderkind Festival dengan Guest Star yang menginspirasi',
+            sizes: ['Standard'],
+            variations: ['Keduanya', 'Wonder Qur\'an', 'Wondertalk'],
+            variationImages: {
+                'Keduanya': 'GuestStar.png',
+                'Wonder Qur\'an': 'GuestStar-D1.png',
+                'Wondertalk': 'GuestStar-D2.png',
+            },
+            variationPrices: {
+                'Keduanya': 80000,
+                'Wonder Qur\'an': 50000,
+                'Wondertalk': 50000,      // variasi pertama totebag love
+
+            },
+            imgName: 'GuestStar.png'
         }
     ];
 
     return (
-        <section id="merchandise" className="py-20 bg-gradient-to-b from-wk-white to-wk-lightOrange/20">
+        <section id="merchandise" className="py-20 bg-gradient-to-b from-wk-white via-wk-lightOrange/20 to-wk-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -160,7 +180,7 @@ const Merchandise = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
                     {products.map((product, index) => (
                         <ProductCard
                             key={product.id}

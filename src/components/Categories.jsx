@@ -11,6 +11,7 @@ const Categories = () => {
             description: 'Kompetisi musik tradisional angklung tingkat SD dengan harmonisasi yang memukau',
             participants: 'Tim Sekolah Dasar',
             color: 'from-wk-red to-wk-darkRed',
+            bookUrl: 'https://drive.google.com/drive/folders/1F3WJABZOHQIUVnYdivgcXyoiASPHfCuC',
             formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScqt0Ltag8U161Xs9TEWN7GCpXftpSkC2GdWbK7NKYsSKyhUw/viewform?usp=pp_url&entry.580535696='
         },
         {
@@ -20,6 +21,7 @@ const Categories = () => {
             description: 'Turnamen sepak bola mini untuk siswa SD dengan semangat sportivitas tinggi',
             participants: 'Tim Sekolah Dasar',
             color: 'from-wk-orange to-wk-red',
+            bookUrl: 'https://drive.google.com/drive/folders/1F3WJABZOHQIUVnYdivgcXyoiASPHfCuC',
             formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScqt0Ltag8U161Xs9TEWN7GCpXftpSkC2GdWbK7NKYsSKyhUw/viewform?usp=pp_url&entry.580535696='
         },
         {
@@ -29,6 +31,7 @@ const Categories = () => {
             description: 'Lomba melukis tingkat SD dengan tema "Karsa Cendekia"',
             participants: 'Individu SD',
             color: 'from-wk-gold to-wk-orange',
+            bookUrl: '',
             formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScqt0Ltag8U161Xs9TEWN7GCpXftpSkC2GdWbK7NKYsSKyhUw/viewform?usp=pp_url&entry.580535696='
         },
         {
@@ -38,6 +41,7 @@ const Categories = () => {
             description: 'Kompetisi tari kreasi daerah untuk siswa SD, melestarikan budaya bangsa',
             participants: 'Tim Sekolah Dasar',
             color: 'from-wk-darkRed to-purple-900',
+            bookUrl: '',
             formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScqt0Ltag8U161Xs9TEWN7GCpXftpSkC2GdWbK7NKYsSKyhUw/viewform?usp=pp_url&entry.580535696='
         }
     ];
