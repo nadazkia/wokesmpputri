@@ -148,9 +148,9 @@ const Merchandise = () => {
             sizes: ['Standard'],
             variations: ['Keduanya', 'Wonder Qur\'an', 'Wondertalk'],
             variationImages: {
-                'Keduanya': 'GuestStar.png',
-                'Wonder Qur\'an': 'GuestStar-D1.png',
-                'Wondertalk': 'GuestStar-D2.png',
+                'Keduanya': 'GuestStar.PNG',
+                'Wonder Qur\'an': 'GuestStar-D1.PNG',
+                'Wondertalk': 'GuestStar-D2.PNG',
             },
             variationPrices: {
                 'Keduanya': 80000,
@@ -158,7 +158,7 @@ const Merchandise = () => {
                 'Wondertalk': 50000,      // variasi pertama totebag love
 
             },
-            imgName: 'GuestStar.png'
+            imgName: 'GuestStar.PNG'
         }
     ];
 
