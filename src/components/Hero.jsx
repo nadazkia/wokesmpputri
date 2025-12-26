@@ -100,7 +100,7 @@ const Hero = () => {
                 >
                     <div className="flex flex-wrap justify-center gap-8 text-wk-white">
                         <div className="text-center">
-                            <p className="text-4xl font-bold text-wk-gold">1000+</p>
+                            <p className="text-4xl font-bold text-wk-gold">1500+</p>
                             <p className="text-wk-lightOrange">Audiences</p>
                         </div>
                         <div className="text-center">
