@@ -77,6 +77,7 @@ const Cart = () => {
 
         } catch (error) {
             alert("Tidak dapat menghubungi server pembayaran");
+            console.log(payload);
         } finally {
             setLoading(false);
         }
