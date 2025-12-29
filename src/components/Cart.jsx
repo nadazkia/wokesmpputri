@@ -13,6 +13,8 @@ const Cart = () => {
     const [buyerName, setBuyerName] = useState('');
     const [buyerWhatsapp, setBuyerWhatsapp] = useState('');
 
+    const [loading, setLoading] = useState(false);
+
     const handleCheckout = async () => {
         if (cartItems.length === 0) {
             toast({
@@ -33,32 +35,54 @@ const Cart = () => {
         }
 
         const orderId = "WK-" + Date.now();
+        const items = cartItems.map((item) => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.qty,
+        }));
 
-        const res = await fetch("/api/create-transaction", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                orderId,
-                amount: totalPrice,
-                customer: {
-                    name: buyerName,
-                    whatsapp: buyerWhatsapp,
-                    items: cartItems.map(item => ({
-                        id: item.id,
-                        name: `${item.name} (${item.selectedSize}, ${item.selectedVariation})`,
-                        quantity: item.quantity,
-                        price: item.price,
-                    }))
+        const payload = {
+            orderId,
+            amount: totalPrice, // ⬅️ diganti
+            customer: {
+                name: buyerName,
+                whatsapp: buyerWhatsapp,
+                items,
+            },
+        };
+        try {
+            setLoading(true);
+            const API_URL = process.env.NODE_ENV === "production"
+                ? "https://wokesmpputri.com/api"
+                : "http://localhost:8000/api";
+            const response = await fetch(`${API_URL}/api/create-transaction.php`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
                 },
-            }),
-        });
+                body: JSON.stringify({ ...payload }),
+            });
 
-        const data = await res.json();
+            const data = await response.json();
 
-        window.snap.pay(data.token, {
-            onSuccess: () => redirectToWhatsapp("LUNAS"),
-            onPending: () => redirectToWhatsapp("MENUNGGU PEMBAYARAN"),
-        });
+            if (!data.token) {
+                alert("Gagal membuat transaksi");
+                return;
+            }
+
+            window.snap.pay(data.token, {
+                onSuccess: () => redirectToWhatsapp("LUNAS"),
+                onPending: () => redirectToWhatsapp("MENUNGGU PEMBAYARAN"),
+                onError: () => alert("Terjadi kesalahan pada proses pembayaran"),
+            });
+
+        } catch (error) {
+            alert("Tidak dapat menghubungi server pembayaran");
+        } finally {
+            setLoading(false);
+        }
+
         const redirectToWhatsapp = (paymentStatus) => {
             const message = `*[PESAN MERCH - ${buyerName}]*\n\nAssalamu'alaikum, saya ingin memesan Merchandise Wonderkind Festival:\n\n${cartItems
                 .map(
@@ -215,7 +239,7 @@ const Cart = () => {
                                 className="w-full bg-wk-red hover:bg-wk-darkRed text-wk-white py-6 rounded-xl text-lg font-semibold shadow-lg"
                                 disabled={cartItems.length === 0}
                             >
-                                Checkout via WhatsApp
+                                {loading ? "Memproses..." : "Checkout"}
                             </Button>
                         </div>
                     </motion.div>

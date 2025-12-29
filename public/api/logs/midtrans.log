@@ -1,0 +1,5 @@
+file_put_contents(
+  __DIR__ . "/logs/midtrans.log",
+  date("Y-m-d H:i:s") . " " . json_encode($data) . PHP_EOL,
+  FILE_APPEND
+);
