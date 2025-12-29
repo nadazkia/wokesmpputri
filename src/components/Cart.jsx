@@ -12,8 +12,9 @@ const Cart = () => {
     const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const [buyerName, setBuyerName] = useState('');
     const [buyerWhatsapp, setBuyerWhatsapp] = useState('');
+    const [selectedUnit, setSelectedUnit] = useState('DQ2 Pi');
+    const [buyerAsrama, setBuyerAsrama] = useState('');
 
-    const [loading, setLoading] = useState(false);
 
     const handleCheckout = async () => {
         if (cartItems.length === 0) {
@@ -35,65 +36,18 @@ const Cart = () => {
         }
 
         const orderId = "WK-" + Date.now();
-        const payload = {
-            orderId,
-            amount: totalPrice, // ⬅️ diganti
-            customer: {
-                name: buyerName,
-                whatsapp: buyerWhatsapp,
-                items: cartItems.map((item) => ({
-                    id: item.id,
-                    name: item.name,
-                    price: item.price,
-                    quantity: item.qty,
-                })),
-            },
-        };
-        try {
-            setLoading(true);
-            const API_URL = process.env.NODE_ENV === "production"
-                ? "https://wokesmpputri.com/api"
-                : "http://localhost:8000/api";
-            const response = await fetch(`${API_URL}/create-transaction.php`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(payload),
-            });
-
-            const data = await response.json();
-            window.snap.pay(data.token, {
-                onSuccess: () => redirectToWhatsapp("LUNAS"),
-                onPending: () => redirectToWhatsapp("MENUNGGU PEMBAYARAN"),
-                onError: () => alert("Terjadi kesalahan pada proses pembayaran"),
-                onClose: () => alert("Anda menutup popup pembayaran tanpa menyelesaikan pembayaran"),
-            });
-
-            if (!data.token) {
-                alert("Gagal membuat transaksi");
-                return;
-            };
-
-        } catch (error) {
-            alert("Tidak dapat menghubungi server pembayaran");
-            console.log(payload);
-        } finally {
-            setLoading(false);
-        }
-
-        const redirectToWhatsapp = (paymentStatus) => {
-            const message = `*[PESAN MERCH - ${buyerName}]*\n\nAssalamu'alaikum, saya ingin memesan Merchandise Wonderkind Festival:\n\n${cartItems
+        const message =
+            `*[PESAN MERCH - ${buyerName}]*\n\nAssalamu'alaikum, saya:\norder ID: ${orderId}\nUnit: ${selectedUnit}\nNama: ${buyerName}\nNo. Whatsapp: ${buyerWhatsapp}\n\ningin memesan Merchandise Wonderkind Festival:\n${cartItems
                 .map(
                     (item) =>
                         `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp ${(
                             item.price * item.quantity
                         ).toLocaleString('id-ID')}`
                 )
-                .join('\n')}\n\n*Total: Rp ${totalPrice.toLocaleString('id-ID')}*\nStatus Pembayaran: ${paymentStatus}\n\nTerima kasih!`;
-            const whatsappUrl = `https://wa.me/6285179988420?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
+                .join('\n')}\n*Total: Rp ${totalPrice.toLocaleString('id-ID')}*\n\nTerima kasih!`;
+        const whatsappUrl = `https://wa.me/6285179988420?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+
         toast({
             title: "Mengarahkan ke WhatsApp",
             description: "Selesaikan pemesanan Anda melalui WhatsApp",
@@ -203,29 +157,61 @@ const Cart = () => {
                         </div>
 
                         <div className="border-t p-6 bg-gray-50">
-                            <div className="mb-4">
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Nama Pembeli
-                                </label>
-                                <input
-                                    type="text"
-                                    placeholder="Masukkan nama Anda"
-                                    value={buyerName}
-                                    onChange={(e) => setBuyerName(e.target.value)}
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-wk-red"
-                                />
+                            <div className="grid grid-cols-2 gap-2">
+                                <div className="mb-4">
+                                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                        Nama Pembeli
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder="Masukkan nama Anda"
+                                        value={buyerName}
+                                        onChange={(e) => setBuyerName(e.target.value)}
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-wk-red"
+                                    />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                        No. Whatsapp Pembeli
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder="Masukkan nomor whatsapp Anda"
+                                        value={buyerWhatsapp}
+                                        onChange={(e) => setBuyerWhatsapp(e.target.value)}
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-wk-red"
+                                    />
+                                </div>
                             </div>
-                            <div className="mb-4">
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    No. Whatsapp Pembeli
-                                </label>
-                                <input
-                                    type="text"
-                                    placeholder="Masukkan nomor whatsapp Anda"
-                                    value={buyerWhatsapp}
-                                    onChange={(e) => setBuyerWhatsapp(e.target.value)}
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-wk-red"
-                                />
+                            <div className="grid grid-cols-2 gap-2">
+                                <div className="mb-4">
+                                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                        Unit DQM
+                                    </label>
+                                    <select
+                                        value={selectedUnit}
+                                        onChange={(e) => setSelectedUnit(e.target.value)}
+                                        className="w-full px-4 py-4 rounded-xl border border-gray-300 text-gray-700 hover:border-wk-red focus:outline-none focus:ring-2 focus:ring-wk-red"
+                                    >
+                                        <option value="DQ1 Pi">DQ1 Pi</option>
+                                        <option value="DQ1 Pa">DQ1 Pa</option>
+                                        <option value="DQ2 Pi">DQ2 Pi</option>
+                                        <option value="DQ2 Pa">DQ2 Pa</option>
+                                        <option value="DQM IS">DQM IS</option>
+                                    </select>
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                        Asrama Pembeli
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder="Masukkan asrama"
+                                        value={buyerAsrama}
+                                        onChange={(e) => setBuyerAsrama(e.target.value)}
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-wk-red"
+                                    />
+                                </div>
                             </div>
                             <div className="flex items-center justify-between mb-4">
                                 <span className="text-lg font-semibold text-gray-700">Total:</span>
@@ -238,7 +224,7 @@ const Cart = () => {
                                 className="w-full bg-wk-red hover:bg-wk-darkRed text-wk-white py-6 rounded-xl text-lg font-semibold shadow-lg"
                                 disabled={cartItems.length === 0}
                             >
-                                {loading ? "Memproses..." : "Checkout"}
+                                Checkout
                             </Button>
                         </div>
                     </motion.div>
