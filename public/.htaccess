@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# API ke Node backend
+RewriteCond %{REQUEST_URI} ^/api
+RewriteRule ^api/(.*)$ http://localhost:5000/api/$1 [P,L]
+
+# React SPA
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]

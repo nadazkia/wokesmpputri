@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
 import { Button } from './ui/button';
@@ -10,8 +10,10 @@ const Cart = () => {
     const { toast } = useToast();
 
     const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const [buyerName, setBuyerName] = useState('');
+    const [buyerWhatsapp, setBuyerWhatsapp] = useState('');
 
-    const handleCheckout = () => {
+    const handleCheckout = async () => {
         if (cartItems.length === 0) {
             toast({
                 title: "Keranjang Kosong",
@@ -21,18 +23,54 @@ const Cart = () => {
             return;
         }
 
-        const message = `Assalamu'alaikum, saya ingin memesan:\n\n${cartItems
-            .map(
-                (item) =>
-                    `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp ${(
-                        item.price * item.quantity
-                    ).toLocaleString('id-ID')}`
-            )
-            .join('\n')}\n\nTotal: Rp ${totalPrice.toLocaleString('id-ID')}`;
+        if (!buyerName.trim()) {
+            toast({
+                title: "Nama belum diisi",
+                description: "Silakan masukkan nama pembeli terlebih dahulu",
+                variant: "destructive",
+            });
+            return;
+        }
 
-        const whatsappUrl = `https://wa.me/6285179988420?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
+        const orderId = "WK-" + Date.now();
 
+        const res = await fetch("/api/create-transaction", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                orderId,
+                amount: totalPrice,
+                customer: {
+                    name: buyerName,
+                    whatsapp: buyerWhatsapp,
+                    items: cartItems.map(item => ({
+                        id: item.id,
+                        name: `${item.name} (${item.selectedSize}, ${item.selectedVariation})`,
+                        quantity: item.quantity,
+                        price: item.price,
+                    }))
+                },
+            }),
+        });
+
+        const data = await res.json();
+
+        window.snap.pay(data.token, {
+            onSuccess: () => redirectToWhatsapp("LUNAS"),
+            onPending: () => redirectToWhatsapp("MENUNGGU PEMBAYARAN"),
+        });
+        const redirectToWhatsapp = (paymentStatus) => {
+            const message = `*[PESAN MERCH - ${buyerName}]*\n\nAssalamu'alaikum, saya ingin memesan Merchandise Wonderkind Festival:\n\n${cartItems
+                .map(
+                    (item) =>
+                        `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp ${(
+                            item.price * item.quantity
+                        ).toLocaleString('id-ID')}`
+                )
+                .join('\n')}\n\n*Total: Rp ${totalPrice.toLocaleString('id-ID')}*\nStatus Pembayaran: ${paymentStatus}\n\nTerima kasih!`;
+            const whatsappUrl = `https://wa.me/6285179988420?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
         toast({
             title: "Mengarahkan ke WhatsApp",
             description: "Selesaikan pemesanan Anda melalui WhatsApp",
@@ -78,7 +116,7 @@ const Cart = () => {
                                 <div className="space-y-4">
                                     {cartItems.map((item) => (
                                         <motion.div
-                                            key={`${item.id}-${item.selectedVariation}-${item.selectedColor}`}
+                                            key={`${item.id}-${item.selectedSize}-${item.selectedVariation}`}
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: -20 }}
@@ -99,7 +137,7 @@ const Cart = () => {
                                                 <div className="flex-1 min-w-0">
                                                     <h3 className="font-semibold text-gray-900 truncate">{item.name}</h3>
                                                     <p className="text-sm text-gray-600">
-                                                        {item.selectedVariation} • {item.selectedColor}
+                                                        {item.selectedSize} • {item.selectedVariation}
                                                     </p>
                                                     <p className="text-lg font-bold text-wk-red mt-1">
                                                         Rp {item.price.toLocaleString('id-ID')}
@@ -112,7 +150,7 @@ const Cart = () => {
                                                         variant="outline"
                                                         size="icon"
                                                         className="h-8 w-8 border-wk-orange text-wk-orange hover:bg-wk-orange hover:text-wk-white"
-                                                        onClick={() => updateQuantity(item.id, item.selectedVariation, item.selectedColor, Math.max(1, item.quantity - 1))}
+                                                        onClick={() => updateQuantity(item.id, item.selectedSize, item.selectedVariation, Math.max(1, item.quantity - 1))}
                                                     >
                                                         <Minus className="w-3 h-3" />
                                                     </Button>
@@ -121,7 +159,7 @@ const Cart = () => {
                                                         variant="outline"
                                                         size="icon"
                                                         className="h-8 w-8 border-wk-orange text-wk-orange hover:bg-wk-orange hover:text-wk-white"
-                                                        onClick={() => updateQuantity(item.id, item.selectedVariation, item.selectedColor, item.quantity + 1)}
+                                                        onClick={() => updateQuantity(item.id, item.selectedSize, item.selectedVariation, item.quantity + 1)}
                                                     >
                                                         <Plus className="w-3 h-3" />
                                                     </Button>
@@ -130,7 +168,7 @@ const Cart = () => {
                                                     variant="ghost"
                                                     size="icon"
                                                     className="text-red-500 hover:text-red-700 hover:bg-red-50"
-                                                    onClick={() => removeFromCart(item.id, item.selectedVariation, item.selectedColor)}
+                                                    onClick={() => removeFromCart(item.id, item.selectedSize, item.selectedVariation)}
                                                 >
                                                     <Trash2 className="w-5 h-5" />
                                                 </Button>
@@ -142,6 +180,30 @@ const Cart = () => {
                         </div>
 
                         <div className="border-t p-6 bg-gray-50">
+                            <div className="mb-4">
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    Nama Pembeli
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Masukkan nama Anda"
+                                    value={buyerName}
+                                    onChange={(e) => setBuyerName(e.target.value)}
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-wk-red"
+                                />
+                            </div>
+                            <div className="mb-4">
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    No. Whatsapp Pembeli
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Masukkan nomor whatsapp Anda"
+                                    value={buyerWhatsapp}
+                                    onChange={(e) => setBuyerWhatsapp(e.target.value)}
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-wk-red"
+                                />
+                            </div>
                             <div className="flex items-center justify-between mb-4">
                                 <span className="text-lg font-semibold text-gray-700">Total:</span>
                                 <span className="text-2xl font-bold text-wk-red">

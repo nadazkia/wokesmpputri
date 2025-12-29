@@ -32,7 +32,7 @@ const Categories = () => {
             participants: 'Individu SD',
             color: 'from-wk-gold to-wk-orange',
             bookUrl: '',
-            formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScqt0Ltag8U161Xs9TEWN7GCpXftpSkC2GdWbK7NKYsSKyhUw/viewform?usp=pp_url&entry.580535696='
+            formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfp5f-aw0geix1sE46Q_i7OAyW6H1D0RyK4VzwE_k6mqpY9RA/viewform?usp=header'
         },
         {
             id: 'cultural-flow',
@@ -42,7 +42,7 @@ const Categories = () => {
             participants: 'Tim Sekolah Dasar',
             color: 'from-wk-darkRed to-purple-900',
             bookUrl: '',
-            formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScqt0Ltag8U161Xs9TEWN7GCpXftpSkC2GdWbK7NKYsSKyhUw/viewform?usp=pp_url&entry.580535696='
+            formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScl_7gtMVDAYYt-klHJe6kn_7YDr_TAdGPKxkSto2bnV6ynsQ/viewform?usp=publish-editor'
         }
     ];
 

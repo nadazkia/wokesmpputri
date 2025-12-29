@@ -11,7 +11,9 @@ const CategoryCard = ({ category, index }) => {
         // const element = document.getElementById('register-form');
         // element?.scrollIntoView({ behavior: 'smooth' });
 
-        const url = category.formUrl + encodeURIComponent(category.name);
+        const url = category.formUrl
+        // + encodeURIComponent(category.name);
+        url?.scrollIntoView({ behavior: 'smooth' });
         window.open(url, '_blank');
     };
     const handleBook = () => {

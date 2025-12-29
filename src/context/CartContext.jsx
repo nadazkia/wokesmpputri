@@ -28,15 +28,15 @@ export const CartProvider = ({ children }) => {
             const existingItem = prev.find(
                 (item) =>
                     item.id === product.id &&
-                    item.selectedVariation === product.selectedVariation &&
-                    item.selectedColor === product.selectedColor
+                    item.selectedSize === product.selectedSize &&
+                    item.selectedVariation === product.selectedVariation
             );
 
             if (existingItem) {
                 return prev.map((item) =>
                     item.id === product.id &&
-                        item.selectedVariation === product.selectedVariation &&
-                        item.selectedColor === product.selectedColor
+                        item.selectedSize === product.selectedSize &&
+                        item.selectedVariation === product.selectedVariation
                         ? { ...item, quantity: item.quantity + (product.quantity || 1) }
                         : item
                 );
@@ -46,21 +46,21 @@ export const CartProvider = ({ children }) => {
         });
     };
 
-    const updateQuantity = (id, variation, color, quantity) => {
+    const updateQuantity = (id, size, variation, quantity) => {
         setCartItems((prev) =>
             prev.map((item) =>
-                item.id === id && item.selectedVariation === variation && item.selectedColor === color
+                item.id === id && item.selectedSize === size && item.selectedVariation === variation
                     ? { ...item, quantity }
                     : item
             )
         );
     };
 
-    const removeFromCart = (id, variation, color) => {
+    const removeFromCart = (id, size, variation) => {
         setCartItems((prev) =>
             prev.filter(
                 (item) =>
-                    !(item.id === id && item.selectedVariation === variation && item.selectedColor === color)
+                    !(item.id === id && item.selectedSize === size && item.selectedVariation === variation)
             )
         );
     };
