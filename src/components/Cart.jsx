@@ -56,7 +56,7 @@ const Cart = () => {
             const API_URL = process.env.NODE_ENV === "production"
                 ? "https://wokesmpputri.com/api"
                 : "http://localhost:8000/api";
-            const response = await fetch(`${API_URL}/api/create-transaction.php`, {
+            const response = await fetch(`${API_URL}/create-transaction.php`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
