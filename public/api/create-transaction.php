@@ -1,52 +1,36 @@
 <?php
-require "config.php";
-require "database.php";
-require "../midtrans-php-master/Midtrans.php";
+require_once "../midtrans-php-master/Midtrans.php";
 
-\Midtrans\Config::$serverKey = MIDTRANS_SERVER_KEY;
-\Midtrans\Config::$isProduction = MIDTRANS_IS_PRODUCTION;
+// Load env
+$serverKey = getenv('MIDTRANS_SERVER_KEY');
+
+\Midtrans\Config::$serverKey = 'SB-Mid-server-ehwt85JLH_TnLqU-WjRB9Gwv';
+\Midtrans\Config::$isProduction = false; // true jika production
 \Midtrans\Config::$isSanitized = true;
 \Midtrans\Config::$is3ds = true;
 
-$data = json_decode(file_get_contents("php://input"), true);
+header('Content-Type: application/json');
 
-$orderId = $data["orderId"];
-$amount = $data["amount"];
-$customer = $data["customer"];
-
-// VALIDASI TOTAL
-$total = 0;
-foreach ($customer["items"] as $item) {
-    $total += $item["price"] * $item["quantity"];
-}
-if ($total != $amount) {
-    http_response_code(400);
-    exit("Total tidak valid");
-}
-
-// Add new notification url(s) alongside the settings on Midtrans Dashboard Portal (MAP)
-Config::$appendNotifUrl = "https://wokesmpputri.com/api/midtrans-notification.php";
-// Use new notification url(s) disregarding the settings on Midtrans Dashboard Portal (MAP)
-Config::$overrideNotifUrl = "https://wokesmpputri.com/api/midtrans-notification.php";
-
-// SIMPAN ORDER
-$conn->query("
-  INSERT INTO orders (order_id, customer_name, whatsapp, amount, status)
-  VALUES ('$orderId', '{$customer["name"]}', '{$customer["whatsapp"]}', $amount, 'pending')
-");
+$input = json_decode(file_get_contents('php://input'), true);
+$orderId = isset($input['totalPrice']) ? (int) $input['totalPrice'] : null;
+$customer = $input["customer"];
 
 $params = [
     "transaction_details" => [
         "order_id" => $orderId,
-        "gross_amount" => $amount
+        "gross_amount" => $input["amount"]
     ],
-    "item_details" => $customer["items"],
     "customer_details" => [
         "first_name" => $customer["name"],
         "phone" => $customer["whatsapp"]
-    ]
+    ],
+    "item_details" => $customer["items"]
 ];
 
-$snapToken = \Midtrans\Snap::getSnapToken($params);
-
-echo json_encode(["token" => $snapToken]);
+try {
+    $snapToken = \Midtrans\Snap::getSnapToken($params);
+    echo json_encode(['token' => $snapToken]);
+} catch (Exception $e) {
+    echo json_encode(['error' => $e->getMessage()]);
+}
+?>

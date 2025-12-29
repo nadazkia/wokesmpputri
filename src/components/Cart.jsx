@@ -35,20 +35,18 @@ const Cart = () => {
         }
 
         const orderId = "WK-" + Date.now();
-        const items = cartItems.map((item) => ({
-            id: item.id,
-            name: item.name,
-            price: item.price,
-            quantity: item.qty,
-        }));
-
         const payload = {
             orderId,
             amount: totalPrice, // ⬅️ diganti
             customer: {
                 name: buyerName,
                 whatsapp: buyerWhatsapp,
-                items,
+                items: cartItems.map((item) => ({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    quantity: item.qty,
+                })),
             },
         };
         try {
@@ -65,17 +63,17 @@ const Cart = () => {
             });
 
             const data = await response.json();
-
-            if (!data.token) {
-                alert("Gagal membuat transaksi");
-                return;
-            }
-
             window.snap.pay(data.token, {
                 onSuccess: () => redirectToWhatsapp("LUNAS"),
                 onPending: () => redirectToWhatsapp("MENUNGGU PEMBAYARAN"),
                 onError: () => alert("Terjadi kesalahan pada proses pembayaran"),
+                onClose: () => alert("Anda menutup popup pembayaran tanpa menyelesaikan pembayaran"),
             });
+
+            if (!data.token) {
+                alert("Gagal membuat transaksi");
+                return;
+            };
 
         } catch (error) {
             alert("Tidak dapat menghubungi server pembayaran");

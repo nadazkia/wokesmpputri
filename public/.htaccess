@@ -1,10 +1,10 @@
-RewriteEngine On
+# Matikan rewrite khusus untuk folder ini
+RewriteEngine Off
 
-# API ke Node backend
-RewriteCond %{REQUEST_URI} ^/api
-RewriteRule ^api/(.*)$ http://localhost:5000/api/$1 [P,L]
+# Izinkan semua untuk mengakses file di folder ini
+<FilesMatch "\.php$">
+    Require all granted
+</FilesMatch>
 
-# React SPA
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
+# Matikan Directory Listing
+Options -Indexes
