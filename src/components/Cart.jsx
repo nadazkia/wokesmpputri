@@ -36,8 +36,33 @@ const Cart = () => {
         }
 
         const orderId = "WK-" + Date.now();
+
+        // // ======= GFORM SUBMISSION =======
+        // const orderDetails = cartItems
+        //     .map(
+        //         (item) =>
+        //             `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp ${(item.price * item.quantity).toLocaleString('id-ID')}`
+        //     )
+        //     .join('\n');
+
+        // const GOOGLE_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf_zjRmrEuFeHhkR_f2f6uJ2kZA4MxEmpyVlVIyttc1ahU7BA/viewform";
+
+        // const params = new URLSearchParams({
+        //     "entry.1498160250": buyerName,         // Ganti dengan ID entry Nama
+        //     "entry.954090481": selectedUnit,      // Ganti dengan ID entry Unit
+        //     "entry.124515999": buyerAsrama,      // Ganti dengan ID entry Asrama
+        //     "entry.1456048220": buyerWhatsapp,    // Ganti dengan ID entry WhatsApp
+        //     "entry.1563927210": orderDetails,     // Ganti dengan ID entry Detail Pesanan
+        //     "entry.327558271": totalPrice
+        // });
+
+        // const gformUrl = `${GOOGLE_FORM_BASE_URL}?${params.toString()}`;
+        // window.open(gformUrl, '_blank');
+        // // ======== SUBMIT FORM END ========
+
+        // ======== PESAN WHATSAPP ========
         const message =
-            `*[PESAN MERCH - ${buyerName}]*\n\nAssalamu'alaikum, saya:\norder ID: ${orderId}\nUnit: ${selectedUnit}\nNama: ${buyerName}\nNo. Whatsapp: ${buyerWhatsapp}\n\ningin memesan Merchandise Wonderkind Festival:\n${cartItems
+            `*[PESAN MERCH - ${buyerName}]*\n\nAssalamu'alaikum, saya:\norder ID: ${orderId}\nUnit: ${selectedUnit}\nNama Santri: ${buyerName}\nNo. Whatsapp: ${buyerWhatsapp}\n\ningin memesan Merchandise Wonderkind Festival:\n${cartItems
                 .map(
                     (item) =>
                         `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp ${(
@@ -45,13 +70,13 @@ const Cart = () => {
                         ).toLocaleString('id-ID')}`
                 )
                 .join('\n')}\n*Total: Rp ${totalPrice.toLocaleString('id-ID')}*\n\nTerima kasih!`;
-        const whatsappUrl = `https://wa.me/6285179988420?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/6282123988030?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
-
         toast({
             title: "Mengarahkan ke WhatsApp",
             description: "Selesaikan pemesanan Anda melalui WhatsApp",
         });
+        // ====== PESAN WHATSAPP END======
     };
 
     return (
@@ -172,7 +197,7 @@ const Cart = () => {
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                        No. Whatsapp Pembeli
+                                        No. Whatsapp    
                                     </label>
                                     <input
                                         type="text"
