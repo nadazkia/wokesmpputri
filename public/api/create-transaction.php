@@ -1,7 +1,7 @@
 <?php
 require "config.php";
 require "database.php";
-require "midtrans/Midtrans.php";
+require "../midtrans-php-master/Midtrans.php";
 
 \Midtrans\Config::$serverKey = MIDTRANS_SERVER_KEY;
 \Midtrans\Config::$isProduction = MIDTRANS_IS_PRODUCTION;
@@ -23,6 +23,11 @@ if ($total != $amount) {
     http_response_code(400);
     exit("Total tidak valid");
 }
+
+// Add new notification url(s) alongside the settings on Midtrans Dashboard Portal (MAP)
+Config::$appendNotifUrl = "https://wokesmpputri.com/api/midtrans-notification.php";
+// Use new notification url(s) disregarding the settings on Midtrans Dashboard Portal (MAP)
+Config::$overrideNotifUrl = "https://wokesmpputri.com/api/midtrans-notification.php";
 
 // SIMPAN ORDER
 $conn->query("
