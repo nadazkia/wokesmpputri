@@ -14,6 +14,7 @@ const Cart = () => {
     const [buyerWhatsapp, setBuyerWhatsapp] = useState('');
     const [selectedUnit, setSelectedUnit] = useState('DQ2 Putri');
     const [buyerAsrama, setBuyerAsrama] = useState('');
+    const [buyerKelas, setBuyerKelas] = useState('');
 
 
     const handleCheckout = async () => {
@@ -48,11 +49,12 @@ const Cart = () => {
         const GOOGLE_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc3f8VLkeBha6BDhslWzcxFScYwF89RFrwcLP4r_feJltCsow/viewform";
 
         const params = new URLSearchParams({
-            "entry.1771206808": buyerName,         // Ganti dengan ID entry Nama
-            "entry.744327222": selectedUnit,      // Ganti dengan ID entry Unit
-            "entry.1843060727": buyerAsrama,      // Ganti dengan ID entry Asrama
-            "entry.1592556926": buyerWhatsapp,    // Ganti dengan ID entry WhatsApp
-            "entry.1431562428": orderDetails,     // Ganti dengan ID entry Detail Pesanan
+            "entry.1771206808": buyerName,
+            "entry.744327222": selectedUnit,
+            "entry.1843060727": buyerAsrama,
+            "entry.43611909": buyerKelas,
+            "entry.1592556926": buyerWhatsapp,
+            "entry.1431562428": orderDetails,
             "entry.1499292176": totalPrice
         });
 
@@ -189,7 +191,7 @@ const Cart = () => {
                                     </label>
                                     <input
                                         type="text"
-                                        placeholder="Masukkan nama Anda"
+                                        placeholder="Masukkan nama "
                                         value={buyerName}
                                         onChange={(e) => setBuyerName(e.target.value)}
                                         className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-wk-red"
@@ -201,14 +203,14 @@ const Cart = () => {
                                     </label>
                                     <input
                                         type="text"
-                                        placeholder="Masukkan nomor whatsapp Anda"
+                                        placeholder="Masukkan No.Whatsapp"
                                         value={buyerWhatsapp}
                                         onChange={(e) => setBuyerWhatsapp(e.target.value)}
                                         className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-wk-red"
                                     />
                                 </div>
                             </div>
-                            <div className="grid grid-cols-2 gap-2">
+                            <div className="grid grid-cols-3 gap-2">
                                 <div className="mb-4">
                                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                                         Unit DQM
@@ -224,13 +226,25 @@ const Cart = () => {
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                        Asrama Pembeli
+                                        Asrama
                                     </label>
                                     <input
                                         type="text"
-                                        placeholder="Masukkan asrama"
+                                        placeholder="Asrama"
                                         value={buyerAsrama}
                                         onChange={(e) => setBuyerAsrama(e.target.value)}
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-wk-red"
+                                    />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                        Kelas
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder="Kelas"
+                                        value={buyerKelas}
+                                        onChange={(e) => setBuyerKelas(e.target.value)}
                                         className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-wk-red"
                                     />
                                 </div>
