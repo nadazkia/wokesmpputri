@@ -27,10 +27,10 @@ const Cart = () => {
             return;
         }
 
-        if (!buyerName.trim()) {
+        if (!buyerName.trim()||!buyerWhatsapp.trim()||!buyerAsrama.trim()||!buyerKelas.trim()) {
             toast({
-                title: "Nama belum diisi",
-                description: "Silakan masukkan nama pembeli terlebih dahulu",
+                title: "Data belum lengkap",
+                description: "Silakan masukkan semua data pembeli terlebih dahulu",
                 variant: "destructive",
             });
             return;
