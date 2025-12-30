@@ -12,7 +12,7 @@ const Cart = () => {
     const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const [buyerName, setBuyerName] = useState('');
     const [buyerWhatsapp, setBuyerWhatsapp] = useState('');
-    const [selectedUnit, setSelectedUnit] = useState('DQ2 Pi');
+    const [selectedUnit, setSelectedUnit] = useState('DQ2 Putri');
     const [buyerAsrama, setBuyerAsrama] = useState('');
 
 
@@ -35,48 +35,48 @@ const Cart = () => {
             return;
         }
 
-        const orderId = "WK-" + Date.now();
+        // const orderId = "WK-" + Date.now();
 
-        // // ======= GFORM SUBMISSION =======
-        // const orderDetails = cartItems
-        //     .map(
-        //         (item) =>
-        //             `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp ${(item.price * item.quantity).toLocaleString('id-ID')}`
-        //     )
-        //     .join('\n');
+        // ======= GFORM SUBMISSION =======
+        const orderDetails = cartItems
+            .map(
+                (item) =>
+                    `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp ${(item.price * item.quantity).toLocaleString('id-ID')}`
+            )
+            .join('\n');
 
-        // const GOOGLE_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf_zjRmrEuFeHhkR_f2f6uJ2kZA4MxEmpyVlVIyttc1ahU7BA/viewform";
+        const GOOGLE_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc3f8VLkeBha6BDhslWzcxFScYwF89RFrwcLP4r_feJltCsow/viewform";
 
-        // const params = new URLSearchParams({
-        //     "entry.1498160250": buyerName,         // Ganti dengan ID entry Nama
-        //     "entry.954090481": selectedUnit,      // Ganti dengan ID entry Unit
-        //     "entry.124515999": buyerAsrama,      // Ganti dengan ID entry Asrama
-        //     "entry.1456048220": buyerWhatsapp,    // Ganti dengan ID entry WhatsApp
-        //     "entry.1563927210": orderDetails,     // Ganti dengan ID entry Detail Pesanan
-        //     "entry.327558271": totalPrice
-        // });
-
-        // const gformUrl = `${GOOGLE_FORM_BASE_URL}?${params.toString()}`;
-        // window.open(gformUrl, '_blank');
-        // // ======== SUBMIT FORM END ========
-
-        // ======== PESAN WHATSAPP ========
-        const message =
-            `*[PESAN MERCH - ${buyerName}]*\n\nAssalamu'alaikum, saya:\norder ID: ${orderId}\nUnit: ${selectedUnit}\nNama Santri: ${buyerName}\nNo. Whatsapp: ${buyerWhatsapp}\n\ningin memesan Merchandise Wonderkind Festival:\n${cartItems
-                .map(
-                    (item) =>
-                        `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp ${(
-                            item.price * item.quantity
-                        ).toLocaleString('id-ID')}`
-                )
-                .join('\n')}\n*Total: Rp ${totalPrice.toLocaleString('id-ID')}*\n\nTerima kasih!`;
-        const whatsappUrl = `https://wa.me/6282123988030?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-        toast({
-            title: "Mengarahkan ke WhatsApp",
-            description: "Selesaikan pemesanan Anda melalui WhatsApp",
+        const params = new URLSearchParams({
+            "entry.1771206808": buyerName,         // Ganti dengan ID entry Nama
+            "entry.744327222": selectedUnit,      // Ganti dengan ID entry Unit
+            "entry.1843060727": buyerAsrama,      // Ganti dengan ID entry Asrama
+            "entry.1592556926": buyerWhatsapp,    // Ganti dengan ID entry WhatsApp
+            "entry.1431562428": orderDetails,     // Ganti dengan ID entry Detail Pesanan
+            "entry.1499292176": totalPrice
         });
-        // ====== PESAN WHATSAPP END======
+
+        const gformUrl = `${GOOGLE_FORM_BASE_URL}?${params.toString()}`;
+        window.open(gformUrl, '_blank');
+        // ======== SUBMIT FORM END ========
+
+        // // ======== PESAN WHATSAPP ========
+        // const message =
+        //     `*[PESAN MERCH - ${buyerName}]*\n\nAssalamu'alaikum, saya:\norder ID: ${orderId}\nUnit: ${selectedUnit}\nNama Santri: ${buyerName}\nNo. Whatsapp: ${buyerWhatsapp}\n\ningin memesan Merchandise Wonderkind Festival:\n${cartItems
+        //         .map(
+        //             (item) =>
+        //                 `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp ${(
+        //                     item.price * item.quantity
+        //                 ).toLocaleString('id-ID')}`
+        //         )
+        //         .join('\n')}\n*Total: Rp ${totalPrice.toLocaleString('id-ID')}*\n\nTerima kasih!`;
+        // const whatsappUrl = `https://wa.me/6282123988030?text=${encodeURIComponent(message)}`;
+        // window.open(whatsappUrl, '_blank');
+        // toast({
+        //     title: "Mengarahkan ke WhatsApp",
+        //     description: "Selesaikan pemesanan Anda melalui WhatsApp",
+        // });
+        // // ====== PESAN WHATSAPP END======
     };
 
     return (
@@ -197,7 +197,7 @@ const Cart = () => {
                                 </div>
                                 <div className="mb-4">
                                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                        No. Whatsapp    
+                                        No. Whatsapp
                                     </label>
                                     <input
                                         type="text"
@@ -218,11 +218,8 @@ const Cart = () => {
                                         onChange={(e) => setSelectedUnit(e.target.value)}
                                         className="w-full px-4 py-4 rounded-xl border border-gray-300 text-gray-700 hover:border-wk-red focus:outline-none focus:ring-2 focus:ring-wk-red"
                                     >
-                                        <option value="DQ1 Pi">DQ1 Pi</option>
-                                        <option value="DQ1 Pa">DQ1 Pa</option>
-                                        <option value="DQ2 Pi">DQ2 Pi</option>
-                                        <option value="DQ2 Pa">DQ2 Pa</option>
-                                        <option value="DQM IS">DQM IS</option>
+                                        <option value="DQ2 Putri">DQ2 Putri</option>
+                                        <option value="DQ4 IS">DQ4 IS</option>
                                     </select>
                                 </div>
                                 <div className="mb-4">
