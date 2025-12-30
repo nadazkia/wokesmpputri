@@ -41,7 +41,7 @@ const Cart = () => {
         const orderDetails = cartItems
             .map(
                 (item) =>
-                    `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp ${(item.price * item.quantity).toLocaleString('id-ID')}`
+                    `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp${(item.price * item.quantity).toLocaleString('id-ID')}`
             )
             .join('\n');
 
