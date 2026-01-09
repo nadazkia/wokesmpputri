@@ -11,10 +11,10 @@ const CategoryCard = ({ category, index }) => {
         // const element = document.getElementById('register-form');
         // element?.scrollIntoView({ behavior: 'smooth' });
 
-        const url = category.formUrl
+        const url = category.formUrl;
         // + encodeURIComponent(category.name);
-        url?.scrollIntoView({ behavior: 'smooth' });
         window.open(url, '_blank');
+        url?.scrollIntoView({ behavior: 'smooth' });
     };
     const handleBook = () => {
         const url = category.bookUrl;
