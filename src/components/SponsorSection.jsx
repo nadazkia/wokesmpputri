@@ -3,47 +3,47 @@ import { motion } from "framer-motion";
 import { Button } from './ui/button';
 import { SITE_CONFIG } from '../config/siteConfig';
 
-const sponsors = [
-    { name: "Sponsor Platinum", logo: "/img/sponsor/platinum1.png", tier: "platinum" },
-    { name: "Sponsor Gold 1", logo: "/img/sponsor/gold1.png", tier: "gold" },
-    { name: "Sponsor Gold 2", logo: "/img/sponsor/gold2.png", tier: "media" },
-    { name: "Sponsor Silver 1", logo: "/img/sponsor/silver1.png", tier: "silver" },
-    { name: "Sponsor Silver 2", logo: "/img/sponsor/silver2.png", tier: "gold" },
-];
+// const sponsors = [
+//     { name: "Sponsor Platinum", logo: "/img/sponsor/platinum1.png", tier: "platinum" },
+//     { name: "Sponsor Gold 1", logo: "/img/sponsor/gold1.png", tier: "gold" },
+//     { name: "Sponsor Gold 2", logo: "/img/sponsor/gold2.png", tier: "media" },
+//     { name: "Sponsor Silver 1", logo: "/img/sponsor/silver1.png", tier: "silver" },
+//     { name: "Sponsor Silver 2", logo: "/img/sponsor/silver2.png", tier: "gold" },
+// ];
 
-const mediaPartners = [
-    { name: "Media Partner 1", logo: "/img/sponsor/media1.png" },
-    { name: "Media Partner 2", logo: "/img/sponsor/media2.png" },
-];
+// const mediaPartners = [
+//     { name: "Media Partner 1", logo: "/img/sponsor/media1.png" },
+//     { name: "Media Partner 2", logo: "/img/sponsor/media2.png" },
+// ];
 
-const sponsorSize = {
-    platinum: "w-72 h-36",
-    gold: "w-56 h-28",
-    silver: "w-44 h-24",
-    media: "w-40 h-20",
-};
+// const sponsorSize = {
+//     platinum: "w-72 h-36",
+//     gold: "w-56 h-28",
+//     silver: "w-44 h-24",
+//     media: "w-40 h-20",
+// };
 
-const SponsorLogo = ({ item, className }) => {
-    const [imgError, setImgError] = useState(false);
+// const SponsorLogo = ({ item, className }) => {
+//     const [imgError, setImgError] = useState(false);
 
-    if (imgError) {
-        return (
-            <div className="flex flex-col items-center justify-center text-center p-2">
-                <span className="font-bold text-sm text-wk-darkRed">{item.name}</span>
-                <span className="text-[10px] uppercase tracking-wider text-wk-orange font-semibold">{item.tier || 'partner'}</span>
-            </div>
-        );
-    }
+//     if (imgError) {
+//         return (
+//             <div className="flex flex-col items-center justify-center text-center p-2">
+//                 <span className="font-bold text-sm text-wk-darkRed">{item.name}</span>
+//                 <span className="text-[10px] uppercase tracking-wider text-wk-orange font-semibold">{item.tier || 'partner'}</span>
+//             </div>
+//         );
+//     }
 
-    return (
-        <img
-            src={process.env.PUBLIC_URL + item.logo}
-            alt={item.name}
-            onError={() => setImgError(true)}
-            className={className}
-        />
-    );
-};
+//     return (
+//         <img
+//             src={process.env.PUBLIC_URL + item.logo}
+//             alt={item.name}
+//             onError={() => setImgError(true)}
+//             className={className}
+//         />
+//     );
+// };
 
 const SectionTitle = ({ title, subtitle }) => (
     <motion.div
