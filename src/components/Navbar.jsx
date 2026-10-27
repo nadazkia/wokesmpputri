@@ -20,25 +20,32 @@ const Navbar = () => {
     const navLinks = [{
         name: 'Beranda',
         href: '#hero'
-    }, {
+    },
+    {
         name: 'Tentang',
         href: '#about'
-    }, {
+    },
+    {
         name: 'Lomba',
         href: '#categories'
-    }, {
+    },
+    {
         name: 'Jadwal',
         href: '#schedule'
-    }, {
-        name: 'Tiket',
-        href: '#tickets'
-    }, {
-        name: 'Merchandise',
-        href: '#merchandise'
-    }, {
+    },
+    // {
+    //     name: 'Tiket',
+    //     href: '#tickets'
+    // },
+    // {
+    //     name: 'Merchandise',
+    //     href: '#merchandise'
+    // },
+    {
         name: 'Sponsor',
         href: '#sponsor'
-    }, {
+    },
+    {
         name: 'FAQ',
         href: '#faq'
     }];
