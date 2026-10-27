@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
+import { X, Minus, Plus, Trash2, ShoppingBag, CheckCircle, Copy, MessageCircle } from 'lucide-react';
 import { Button } from './ui/button';
 import { useCart } from '../context/CartContext';
 import { useToast } from './ui/use-toast';
+import { createOrder } from '../services/orderService';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 const Cart = () => {
-    const { isCartOpen, toggleCart, cartItems, updateQuantity, removeFromCart } = useCart();
+    const { isCartOpen, toggleCart, cartItems, updateQuantity, removeFromCart, clearCart } = useCart();
     const { toast } = useToast();
 
     const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -15,7 +17,8 @@ const Cart = () => {
     const [selectedUnit, setSelectedUnit] = useState('DQ2 Putri');
     const [buyerAsrama, setBuyerAsrama] = useState('');
     const [buyerKelas, setBuyerKelas] = useState('');
-
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [completedOrder, setCompletedOrder] = useState(null);
 
     const handleCheckout = async () => {
         if (cartItems.length === 0) {
@@ -27,58 +30,67 @@ const Cart = () => {
             return;
         }
 
-        if (!buyerName.trim()||!buyerWhatsapp.trim()||!buyerAsrama.trim()||!buyerKelas.trim()) {
+        if (!buyerName.trim() || !buyerWhatsapp.trim() || !buyerAsrama.trim() || !buyerKelas.trim()) {
             toast({
                 title: "Data belum lengkap",
-                description: "Silakan masukkan semua data pembeli terlebih dahulu",
+                description: "Silakan masukkan semua data pembeli (Nama, No. WhatsApp, Asrama, dan Kelas)",
                 variant: "destructive",
             });
             return;
         }
 
-        // const orderId = "WK-" + Date.now();
+        setIsSubmitting(true);
+        try {
+            const result = await createOrder({
+                buyer: {
+                    name: buyerName,
+                    whatsapp: buyerWhatsapp,
+                    unit: selectedUnit,
+                    asrama: buyerAsrama,
+                    kelas: buyerKelas
+                },
+                cartItems,
+                totalPrice
+            });
 
-        // ======= GFORM SUBMISSION =======
-        const orderDetails = cartItems
-            .map(
-                (item) =>
-                    `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp${(item.price * item.quantity).toLocaleString('id-ID')}`
-            )
-            .join('\n');
+            if (result.success) {
+                setCompletedOrder({
+                    orderCode: result.orderCode,
+                    whatsappUrl: result.whatsappUrl,
+                    totalPrice
+                });
 
-        const GOOGLE_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc3f8VLkeBha6BDhslWzcxFScYwF89RFrwcLP4r_feJltCsow/viewform";
+                // Buka WhatsApp di tab baru
+                window.open(result.whatsappUrl, '_blank');
 
-        const params = new URLSearchParams({
-            "entry.1771206808": buyerName,
-            "entry.744327222": selectedUnit,
-            "entry.1843060727": buyerAsrama,
-            "entry.43611909": buyerKelas,
-            "entry.1592556926": buyerWhatsapp,
-            "entry.1431562428": orderDetails,
-            "entry.1499292176": totalPrice
-        });
+                toast({
+                    title: "Pesanan Berhasil Dibuat!",
+                    description: `Kode: ${result.orderCode}. Silakan selesaikan konfirmasi via WhatsApp.`,
+                });
 
-        const gformUrl = `${GOOGLE_FORM_BASE_URL}?${params.toString()}`;
-        window.open(gformUrl, '_blank');
-        // ======== SUBMIT FORM END ========
+                // Kosongkan keranjang
+                clearCart();
+            }
+        } catch (error) {
+            console.error('Error saat checkout:', error);
+            toast({
+                title: "Terjadi Kendala",
+                description: "Gagal memproses pesanan. Silakan coba lagi.",
+                variant: "destructive"
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
-        // // ======== PESAN WHATSAPP ========
-        // const message =
-        //     `*[PESAN MERCH - ${buyerName}]*\n\nAssalamu'alaikum, saya:\norder ID: ${orderId}\nUnit: ${selectedUnit}\nNama Santri: ${buyerName}\nNo. Whatsapp: ${buyerWhatsapp}\n\ningin memesan Merchandise Wonderkind Festival:\n${cartItems
-        //         .map(
-        //             (item) =>
-        //                 `${item.quantity}x ${item.name} (${item.selectedSize}, ${item.selectedVariation}) - Rp ${(
-        //                     item.price * item.quantity
-        //                 ).toLocaleString('id-ID')}`
-        //         )
-        //         .join('\n')}\n*Total: Rp ${totalPrice.toLocaleString('id-ID')}*\n\nTerima kasih!`;
-        // const whatsappUrl = `https://wa.me/6282123988030?text=${encodeURIComponent(message)}`;
-        // window.open(whatsappUrl, '_blank');
-        // toast({
-        //     title: "Mengarahkan ke WhatsApp",
-        //     description: "Selesaikan pemesanan Anda melalui WhatsApp",
-        // });
-        // // ====== PESAN WHATSAPP END======
+    const handleCopyCode = () => {
+        if (completedOrder?.orderCode) {
+            navigator.clipboard.writeText(completedOrder.orderCode);
+            toast({
+                title: "Tersalin!",
+                description: "Kode pesanan telah disalin ke clipboard",
+            });
+        }
     };
 
     return (
@@ -257,14 +269,83 @@ const Cart = () => {
                             </div>
                             <Button
                                 onClick={handleCheckout}
-                                className="w-full bg-wk-red hover:bg-wk-darkRed text-wk-white py-6 rounded-xl text-lg font-semibold shadow-lg"
-                                disabled={cartItems.length === 0}
+                                className="w-full bg-wk-red hover:bg-wk-darkRed text-wk-white py-6 rounded-xl text-lg font-semibold shadow-lg disabled:opacity-50"
+                                disabled={cartItems.length === 0 || isSubmitting}
                             >
-                                Checkout
+                                {isSubmitting ? 'Memproses Pesanan...' : 'Checkout via WhatsApp'}
                             </Button>
                         </div>
                     </motion.div>
                 </>
+            )}
+
+            {/* Modal Sukses Pemesanan */}
+            {completedOrder && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border-4 border-wk-gold text-center"
+                    >
+                        <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <CheckCircle className="w-10 h-10" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-wk-darkRed mb-2">Pesanan Berhasil Dibuat!</h3>
+                        <p className="text-sm text-gray-600 mb-4">
+                            Silakan salin kode pesanan Anda dan lanjutkan pembayaran.
+                        </p>
+
+                        <div className="bg-wk-lightOrange/20 border border-wk-orange/30 rounded-xl p-4 mb-4">
+                            <span className="text-xs text-gray-500 uppercase tracking-wider block mb-1">Kode Pesanan</span>
+                            <div className="flex items-center justify-center gap-2">
+                                <span className="text-xl font-mono font-bold text-wk-red">{completedOrder.orderCode}</span>
+                                <Button size="sm" variant="outline" onClick={handleCopyCode} className="h-8 px-2">
+                                    <Copy className="w-4 h-4" />
+                                </Button>
+                            </div>
+                        </div>
+
+                        <div className="text-left text-xs bg-gray-50 rounded-xl p-4 mb-5 space-y-1.5 border border-gray-200">
+                            <div className="flex justify-between">
+                                <span className="text-gray-500">Total Pembayaran:</span>
+                                <span className="font-bold text-wk-red text-sm">Rp {completedOrder.totalPrice.toLocaleString('id-ID')}</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-gray-500">Transfer ke Bank:</span>
+                                <span className="font-semibold">{SITE_CONFIG.payment.bankName}</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-gray-500">No. Rekening:</span>
+                                <span className="font-mono font-bold">{SITE_CONFIG.payment.accountNumber}</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-gray-500">Atas Nama:</span>
+                                <span>{SITE_CONFIG.payment.accountHolder}</span>
+                            </div>
+                        </div>
+
+                        <div className="space-y-2">
+                            <Button
+                                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-5 rounded-xl shadow-md"
+                                onClick={() => window.open(completedOrder.whatsappUrl, '_blank')}
+                            >
+                                <MessageCircle className="w-5 h-5 mr-2" />
+                                Buka WhatsApp Panitia
+                            </Button>
+                            <Button
+                                variant="outline"
+                                className="w-full border-gray-300 py-5 rounded-xl"
+                                onClick={() => {
+                                    setCompletedOrder(null);
+                                    toggleCart();
+                                }}
+                            >
+                                Tutup & Selesai
+                            </Button>
+                        </div>
+                    </motion.div>
+                </div>
             )}
         </AnimatePresence>
     );

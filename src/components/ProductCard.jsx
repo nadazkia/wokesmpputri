@@ -2,26 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import { ShoppingCart, Eye } from 'lucide-react';
-import { useCart } from '../context/CartContext';
-import { useToast } from './ui/use-toast';
 
 const ProductCard = ({ product, index, onSelect }) => {
-    const { addToCart } = useCart();
-    const { toast } = useToast();
-
-    const handleAddToCart = (e) => {
-        e.stopPropagation();
-        addToCart({
-            ...product,
-            selectedVariation: product.variations[0],
-            selectedColor: product.colors[0]
-        });
-        toast({
-            title: "Berhasil ditambahkan!",
-            description: `${product.name} telah ditambahkan ke keranjang`,
-        });
-    };
-
     const getDisplayPrice = (product) => {
         if (product.variationPrices) {
             return Math.min(...Object.values(product.variationPrices));

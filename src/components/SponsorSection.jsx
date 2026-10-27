@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from './ui/button';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 const sponsors = [
     { name: "Sponsor Platinum", logo: "/img/sponsor/platinum1.png", tier: "platinum" },
@@ -15,12 +16,33 @@ const mediaPartners = [
     { name: "Media Partner 2", logo: "/img/sponsor/media2.png" },
 ];
 
-
 const sponsorSize = {
     platinum: "w-72 h-36",
     gold: "w-56 h-28",
     silver: "w-44 h-24",
     media: "w-40 h-20",
+};
+
+const SponsorLogo = ({ item, className }) => {
+    const [imgError, setImgError] = useState(false);
+
+    if (imgError) {
+        return (
+            <div className="flex flex-col items-center justify-center text-center p-2">
+                <span className="font-bold text-sm text-wk-darkRed">{item.name}</span>
+                <span className="text-[10px] uppercase tracking-wider text-wk-orange font-semibold">{item.tier || 'partner'}</span>
+            </div>
+        );
+    }
+
+    return (
+        <img
+            src={process.env.PUBLIC_URL + item.logo}
+            alt={item.name}
+            onError={() => setImgError(true)}
+            className={className}
+        />
+    );
 };
 
 const SectionTitle = ({ title, subtitle }) => (
@@ -38,7 +60,6 @@ const SectionTitle = ({ title, subtitle }) => (
     </motion.div>
 );
 
-
 const SponsorSection = () => {
     return (
         <section
@@ -53,7 +74,7 @@ const SponsorSection = () => {
                 />
 
                 {/* ================= SPONSOR CONTAINER ================= */}
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
@@ -76,18 +97,17 @@ const SponsorSection = () => {
                                 className={`bg-wk-white rounded-2xl shadow-lg border border-wk-lightOrange/40
                   flex items-center justify-center p-6 ${sponsorSize[item.tier]}`}
                             >
-                                <img
-                                    src={process.env.PUBLIC_URL + item.logo}
-                                    alt={item.name}
+                                <SponsorLogo
+                                    item={item}
                                     className="max-h-full max-w-full object-contain"
                                 />
                             </motion.div>
                         ))}
                     </div>
-                </motion.div>
+                </motion.div> */}
 
                 {/* ================= MEDIA PARTNER CONTAINER ================= */}
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
@@ -109,15 +129,14 @@ const SponsorSection = () => {
                                 whileHover={{ scale: 1.05 }}
                                 className="bg-wk-white rounded-xl shadow-md border border-wk-lightOrange/30 flex items-center justify-center p-5 w-40 h-20"
                             >
-                                <img
-                                    src={process.env.PUBLIC_URL + item.logo}
-                                    alt={item.name}
+                                <SponsorLogo
+                                    item={item}
                                     className="max-h-full max-w-full object-contain"
                                 />
                             </motion.div>
                         ))}
                     </div>
-                </motion.div>
+                </motion.div> */}
 
                 {/* ================= CTA ================= */}
                 <motion.div
@@ -139,7 +158,7 @@ const SponsorSection = () => {
                         className="bg-wk-gold text-wk-darkRed hover:bg-wk-lightOrange font-bold px-10 py-6 rounded-xl text-lg"
                     >
                         <a
-                            href="https://wa.me/6281297727368?text=Saya%20tertarik%20untuk%20menjadi%20sponsor%20Wonderkind%20Festival"
+                            href={`https://wa.me/${SITE_CONFIG.officialWhatsapp}?text=${encodeURIComponent('Saya tertarik untuk menjadi sponsor Wonderkind Festival')}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -153,3 +172,4 @@ const SponsorSection = () => {
 };
 
 export default SponsorSection;
+

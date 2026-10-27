@@ -8,19 +8,18 @@ const CompetitionDetails = () => {
             title: 'Lokasi & Waktu',
             items: [
                 'Lokasi: SMPIT Darul Qur-an Mulia',
-                'Timeline Utama: 11-13 Februari 2026',
-                'Lomba SD: 13 Februari 2026',
-                'Pra-Event: Oktober-Desember 2025',
-                'Technical Meeting: 5 Februari 2026'
+                'Timeline Utama: 21-24 Januari 2027',
+                'Lomba SD dan SMP: 22-23 Januari 2027',
+                'Pra-Event: November-Desember 2026',
+                'Technical Meeting: 10 Januari 2027'
             ]
         },
         {
             icon: FileText,
             title: 'Syarat Peserta',
             items: [
-                'Siswa/i Sekolah Dasar (SD/MI)',
+                'Siswa/i Tingkat SD/MI dan SMP/MTs',
                 'Membawa Surat Ket. Sekolah',
-                'Sehat jasmani dan rohani',
                 'Mengisi formulir pendaftaran',
                 'Membayar biaya registrasi lomba'
             ]
@@ -30,8 +29,7 @@ const CompetitionDetails = () => {
             title: 'Tiket Umum',
             items: [
                 'Tersedia untuk Masyarakat Umum',
-                'Akses ke Wonder Talk (12 Feb)',
-                'Akses ke Wonder Qur-an (11 Feb)',
+                'Akses ke Wonder Concert (23 Januari)',
                 'Pembelian via Website'
             ]
         },
@@ -42,7 +40,6 @@ const CompetitionDetails = () => {
                 'Total Hadiah 20+ Juta Rupiah',
                 'Trophy Juara 1, 2, 3',
                 'Sertifikat Peserta',
-                'Merchandise Eksklusif'
             ]
         }
     ];
@@ -61,7 +58,7 @@ const CompetitionDetails = () => {
                         Detail & Informasi Tiket
                     </h2>
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                        Informasi lengkap mengenai pelaksanaan Wonder Competition (Khusus SD) pada 13 Februari dan rangkaian event lainnya.
+                        Informasi lengkap mengenai pelaksanaan Wonder Competition (Khusus SD dan SMP) pada 22-23 Januari 2027 dan rangkaian event lainnya.
                     </p>
                 </motion.div>
 

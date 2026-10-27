@@ -1,10 +1,16 @@
-# Matikan rewrite khusus untuk folder ini
-RewriteEngine Off
+# Apache configuration for Hostinger Single SPA (React)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . /index.html [L]
+</IfModule>
 
-# Izinkan semua untuk mengakses file di folder ini
-<FilesMatch "\.php$">
-    Require all granted
-</FilesMatch>
-
-# Matikan Directory Listing
+# Disable Directory Browsing
 Options -Indexes
+
+# UTF-8 Encoding
+AddDefaultCharset UTF-8

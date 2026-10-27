@@ -23,12 +23,13 @@ module.exports = {
         foreground: "hsl(var(--foreground))",
         // New Wonderkind Palette
         wk: {
-          red: "#A32929",
-          darkRed: "#5D1313",
-          gold: "#E4C02A",
-          orange: "#CF7C30",
-          lightOrange: "#FFCC90",
+          red: "#ff8f98",
+          darkRed: "#db6590",
+          gold: "#e1f76a",
+          orange: "#6ec858",
+          lightOrange: "#962657",
           white: "#FFFEFE",
+          textgelap: "#622d53",
         },
         primary: {
           DEFAULT: "#A32929", // Default to Red

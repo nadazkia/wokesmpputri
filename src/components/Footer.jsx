@@ -1,5 +1,6 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Instagram, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -11,17 +12,15 @@ const Footer = () => {
                     <div>
                         <div className="flex items-center space-x-2 mb-4">
                             <div className="w-10 h-10 bg-wk-white rounded-full flex items-center justify-center">
-                                <img alt="Profile" className="object-cover mix-blend-multiply" src={process.env.PUBLIC_URL + '/img/Profile.PNG'} />
-
-                                {/* <span className="text-wk-red font-bold text-xl">W</span> */}
+                                <img alt="Profile" className="object-cover mix-blend-multiply" src={process.env.PUBLIC_URL + '/img/WOKE.png'} />
                             </div>
-                            <span className="text-xl font-bold">Wonderkind Festival</span>
+                            <span className="text-xl font-bold">{SITE_CONFIG.festivalName}</span>
                         </div>
                         <p className="text-wk-lightOrange text-sm mb-2">
-                            Karsa Cendekia, Wujudkan Lokasamgraha
+                            {SITE_CONFIG.tagline}
                         </p>
                         <p className="text-wk-white/80 text-sm">
-                            Event kompetisi terbesar untuk SD dan masyarakat umum.
+                            Event kompetisi terbesar untuk SD, SMP, dan masyarakat umum.
                         </p>
                     </div>
 
@@ -30,7 +29,7 @@ const Footer = () => {
                         <nav className="space-y-2">
                             <a href="#hero" className="block text-wk-white/80 hover:text-wk-gold transition-colors">Beranda</a>
                             <a href="#about" className="block text-wk-white/80 hover:text-wk-gold transition-colors">Tentang Event</a>
-                            <a href="#categories" className="block text-wk-white/80 hover:text-wk-gold transition-colors">Lomba SD</a>
+                            <a href="#categories" className="block text-wk-white/80 hover:text-wk-gold transition-colors">Lomba SD & SMP</a>
                             <a href="#schedule" className="block text-wk-white/80 hover:text-wk-gold transition-colors">Jadwal</a>
                             <a href="#merchandise" className="block text-wk-white/80 hover:text-wk-gold transition-colors">Tiket & Merch</a>
                         </nav>
@@ -41,18 +40,20 @@ const Footer = () => {
                         <div className="space-y-3">
                             <div className="flex items-start">
                                 <MapPin className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-wk-gold" />
-                                <a href="http://google.maps/" target="_blank" rel="noopener noreferrer" className=' block text-wk-white/80 hover:text-wk-gold transition-colors'>
-                                    <span className="text-sm">SMPIT Darul Qur-an Mulia, Pabuaran, Gunung Sindur, Kab. Bogor</span>
+                                <a href={SITE_CONFIG.socialMedia.maps} target="_blank" rel="noopener noreferrer" className='block text-wk-white/80 hover:text-wk-gold transition-colors'>
+                                    <span className="text-sm">{SITE_CONFIG.schoolName}, {SITE_CONFIG.location}</span>
                                 </a>
                             </div>
                             <div className="flex items-start">
                                 <Mail className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-wk-gold" />
-                                <span className="text-wk-white/80 text-sm">wokesmpputri@dqm.sch.id</span>
+                                <a href={`mailto:${SITE_CONFIG.officialEmail}`} className="text-wk-white/80 text-sm hover:text-wk-gold transition-colors">
+                                    {SITE_CONFIG.officialEmail}
+                                </a>
                             </div>
                             <div className="flex items-start">
                                 <Phone className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-wk-gold" />
-                                <a href="http://wa.me/62895622984364" target="_blank" rel="noopener noreferrer" className=' block text-wk-white/80 hover:text-wk-gold transition-colors'>
-                                    <span className="text-sm">0895-6229-84364</span>
+                                <a href={`https://wa.me/${SITE_CONFIG.officialWhatsapp}`} target="_blank" rel="noopener noreferrer" className='block text-wk-white/80 hover:text-wk-gold transition-colors'>
+                                    <span className="text-sm">+{SITE_CONFIG.officialWhatsapp}</span>
                                 </a>
                             </div>
                         </div>
@@ -62,10 +63,11 @@ const Footer = () => {
                         <span className="font-semibold text-lg mb-4 block text-wk-gold">Media Sosial</span>
                         <div className="flex gap-3">
                             <a
-                                href="https://instagram.com/wokefest.smpputri"
+                                href={SITE_CONFIG.socialMedia.instagram}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 bg-wk-white/10 rounded-lg flex items-center justify-center hover:bg-wk-gold hover:text-wk-darkRed transition-colors"
+                                aria-label="Instagram"
                             >
                                 <Instagram className="w-5 h-5" />
                             </a>
@@ -76,11 +78,14 @@ const Footer = () => {
                 <div className="border-t border-wk-white/20 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <p className="text-wk-white/60 text-sm">
-                            © {currentYear} Wonderkind Festival. All rights reserved.
+                            © {currentYear} {SITE_CONFIG.festivalName}. All rights reserved.
                         </p>
-                        <div className="flex gap-6 text-sm">
-                            <a href="#" className="text-wk-white/60 hover:text-wk-gold transition-colors">Kebijakan Privasi</a>
-                            <a href="#" className="text-wk-white/60 hover:text-wk-gold transition-colors">Syarat & Ketentuan</a>
+                        <div className="flex gap-6 text-sm text-wk-white/60">
+                            <span>SMPIT Darul Qur-an Mulia</span>
+                            <span>Cakrawala</span>
+                            <a href="#admin" className="hover:text-wk-gold transition-colors font-medium">
+                                Portal Panitia
+                            </a>
                         </div>
                     </div>
                 </div>

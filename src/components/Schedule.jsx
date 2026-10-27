@@ -1,81 +1,94 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Clock, MapPin, Users, Heart } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+// import { Clock, MapPin, Users, Heart } from 'lucide-react';
+import { SITE_CONFIG } from "../config/siteConfig";
 
 const Schedule = () => {
-    const schedules = [
-        {
-            day: 'Pra-Event (Oktober-Desember 2025)',
-            theme: 'Wonderkindness Week',
-            isHighlight: true,
-            events: [
-                { time: 'Fleksibel', activity: 'Implementasi & Inisiatif Sosial', location: 'Gunung Sindur' },
-                { time: 'Fleksibel', activity: 'Penyaluran Bantuan & Empati', location: 'Gunung Sindur' },
-            ]
-        },
-        {
-            day: 'Pra-Event (Sabtu, 3 Januari 2026)',
-            theme: 'Wonderkindness Fun Run 5K',
-            events: [
-                { time: '06.00 - 07.00', activity: 'Start - Finish Fun Run 5K', location: 'TMII' },
-                { time: '07.00 - 07.30', activity: 'Pembagian Medali dan Konsumsi', location: 'TMII' },
-                { time: '08.40 - 10.00', activity: 'Hiburan dan Materi dari Guest Star', location: 'TMII' },
-                { time: '10.30 - 12.10', activity: 'Screening Kesehatan Gratis', location: 'TMII' },
-            ]
-        },
-        {
-            day: 'Hari 1 - Rabu, 11 Februari 2026',
-            theme: 'Opening & Internal Competitions',
-            events: [
-                { time: '07.00 - 08.30', activity: 'Grand Opening Wonderkind 2026', location: 'Main Stage' },
-                { time: '10.00 - 15.00', activity: 'Internal Competitions', location: 'All Venues' },
-            ]
-        },
-        {
-            day: 'Hari 2 - Kamis, 12 Februari 2026',
-            theme: 'Inspiration & Knowledge Day',
-            events: [
-                { time: '08.00 - 11.30', activity: 'Wonder Talk (Tiket Umum)', location: 'Main Stage' },
-                { time: '13.00 - 15.30', activity: 'Wonder Preacher (Tiket Umum)', location: 'Main Stage' },
-            ]
-        },
-        {
-            day: 'Hari 3 - Jumat, 13 Februari 2026',
-            theme: 'Wonder Competition (SD) & Celebration',
-            events: [
-                { time: '07.00 - 15.00', activity: 'Wonder Competition (Lomba SD Eksternal)', location: 'All Venues' },
-                { time: '16.00 - 17.30', activity: 'Awarding Ceremony', location: 'Main Stage' },
-                { time: '19.30 - 22.00', activity: 'Grand Closing Wonderkind 2026', location: 'Main Stage' }
-            ]
-        },
-        {
-            day: 'Mei 2026',
-            theme: 'Konser Amal Palestina',
-            events: [
-                { time: '07.00 - 15.00', activity: 'Penggalangan hadiah untuk Palestina', location: 'On Progress' },
-            ]
-        }
-    ];
+  // const schedules = [
+  //     {
+  //         day: 'Pra-Event (Oktober-Desember 2025)',
+  //         theme: 'Wonderkindness Week',
+  //         isHighlight: true,
+  //         events: [
+  //             { time: 'Fleksibel', activity: 'Implementasi & Inisiatif Sosial', location: 'Gunung Sindur' },
+  //             { time: 'Fleksibel', activity: 'Penyaluran Bantuan & Empati', location: 'Gunung Sindur' },
+  //         ]
+  //     },
+  //     {
+  //         day: 'Pra-Event (Sabtu, 3 Januari 2026)',
+  //         theme: 'Wonderkindness Fun Run 5K',
+  //         events: [
+  //             { time: '06.00 - 07.00', activity: 'Start - Finish Fun Run 5K', location: 'TMII' },
+  //             { time: '07.00 - 07.30', activity: 'Pembagian Medali dan Konsumsi', location: 'TMII' },
+  //             { time: '08.40 - 10.00', activity: 'Hiburan dan Materi dari Guest Star', location: 'TMII' },
+  //             { time: '10.30 - 12.10', activity: 'Screening Kesehatan Gratis', location: 'TMII' },
+  //         ]
+  //     },
+  //     {
+  //         day: 'Hari 1 - Rabu, 11 Februari 2026',
+  //         theme: 'Opening & Internal Competitions',
+  //         events: [
+  //             { time: '07.00 - 08.30', activity: 'Grand Opening Wonderkind 2026', location: 'Main Stage' },
+  //             { time: '10.00 - 15.00', activity: 'Internal Competitions', location: 'All Venues' },
+  //         ]
+  //     },
+  //     {
+  //         day: 'Hari 2 - Kamis, 12 Februari 2026',
+  //         theme: 'Inspiration & Knowledge Day',
+  //         events: [
+  //             { time: '08.00 - 11.30', activity: 'Wonder Talk (Tiket Umum)', location: 'Main Stage' },
+  //             { time: '13.00 - 15.30', activity: 'Wonder Preacher (Tiket Umum)', location: 'Main Stage' },
+  //         ]
+  //     },
+  //     {
+  //         day: 'Hari 3 - Jumat, 13 Februari 2026',
+  //         theme: 'Wonder Competition (SD) & Celebration',
+  //         events: [
+  //             { time: '07.00 - 15.00', activity: 'Wonder Competition (Lomba SD Eksternal)', location: 'All Venues' },
+  //             { time: '16.00 - 17.30', activity: 'Awarding Ceremony', location: 'Main Stage' },
+  //             { time: '19.30 - 22.00', activity: 'Grand Closing Wonderkind 2026', location: 'Main Stage' }
+  //         ]
+  //     },
+  //     {
+  //         day: 'Mei 2026',
+  //         theme: 'Konser Amal Palestina',
+  //         events: [
+  //             { time: '07.00 - 15.00', activity: 'Penggalangan hadiah untuk Palestina', location: 'On Progress' },
+  //         ]
+  //     }
+  // ];
 
-    return (
-        <section id="schedule" className="py-20 bg-wk-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-4xl md:text-5xl font-bold text-wk-darkRed mb-4">
-                        Jadwal Rangkaian Acara
-                    </h2>
-                    <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                        Festival utama dilaksanakan 3 hari pada 11-13 Februari 2026. Lomba eksternal untuk SD dipusatkan pada hari terakhir, Jumat 13 Februari.
-                    </p>
-                </motion.div>
+  return (
+    // <section id="schedule" className="py-20 bg-wk-white" style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/img/background.jpeg'})` }}>
+    <section
+      id="schedule"
+      className="py-20 from-[#fafeff] via-[#59692f] to-[#fdfff7] bg-gradient-to-b"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-wk-darkRed mb-4">
+            Jadwal Rangkaian Acara
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            {SITE_CONFIG.festivalName} dilaksanakan 3 hari pada{" "}
+            {SITE_CONFIG.dates}. Lomba eksternal untuk SD/MI dan SMP/MTs
+            dilaksanakan pada 21-22 Januari 2027.
+          </p>
+        </motion.div>
+        <img
+          src={process.env.PUBLIC_URL + "/img/schedule.png"}
+          alt="Contoh"
+          className="block w-auto h-auto max-w-full"
+        />
 
-                <div className="space-y-12">
+        {/* RANGKAIAN JIKA BUKAN IMAGE */}
+        {/* <div className="space-y-12">
                     {schedules.map((schedule, index) => (
                         <motion.div
                             key={index}
@@ -126,10 +139,10 @@ const Schedule = () => {
                             </div>
                         </motion.div>
                     ))}
-                </div>
-            </div>
-        </section>
-    );
+                </div> */}
+      </div>
+    </section>
+  );
 };
 
 export default Schedule;

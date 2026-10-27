@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, Users, Heart, BookOpen, Mic, Music, Ticket } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
+
 
 const About = () => {
     const mainEvents = [
@@ -12,7 +14,7 @@ const About = () => {
         {
             icon: Trophy,
             title: 'Wonder Competition',
-            description: 'Kompetisi Eksternal Tingkat SD dilaksanakan khusus pada 13 Februari 2026.'
+            description: 'Kompetisi Eksternal Tingkat SD dan SMP dilaksanakan khusus pada 21-22 Januari 2027.'
         },
         {
             icon: Users,
@@ -24,15 +26,15 @@ const About = () => {
             title: "Wonder Qur'an",
             description: "Kajian Qur'an bersama penghafal Quran untuk menambah wawasan dan motivasi terhadap Al-Qur'an. Tiket penonton tersedia untuk umum."
         },
-        // {
-        //     icon: Mic,
-        //     title: 'Wonder Preacher',
-        //     description: "Lomba da'i cilik dan pidato inspiratif. Dibuka untuk penonton umum dengan tiket."
-        // },
+        {
+            icon: Mic,
+            title: 'Wonder Preacher',
+            description: "Lomba MHQ untuk tingkat SD. Dilaksanakan pada 21-22 Januari 2027."
+        },
         {
             icon: Music,
             title: 'Wonder Concert',
-            description: 'Konser Amal spektakuler yang akan dilaksanakan pada bulan Mei 2026.'
+            description: 'Konser Amal spektakuler yang akan dilaksanakan pada 23 Januari 2027.'
         }
     ];
 
@@ -51,11 +53,11 @@ const About = () => {
                         <span className="text-wk-darkRed text-sm font-semibold">Tiket Umum Tersedia!</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-wk-red mb-4">
-                        Tentang Wonderkind Festival 2026
+                        Tentang {SITE_CONFIG.festivalName} {SITE_CONFIG.edition}
                     </h2>
                     <p className="text-lg text-gray-600 max-w-4xl mx-auto mb-8">
                         Wonderkind Festival merupakan acara tahunan Pesantren Terpadu Darul Qur’an Mulia. Wonderkind Festival di unit SMP pertama kali dilaksanakan tahun 2024.
-                        Dengan semangat "Karsa Cendekia, Wujudkan Lokasamgraha", festival ini kembali hadir selama 3 hari pada 11-13 Februari 2026.
+                        Dengan semangat "{SITE_CONFIG.tagline}", festival ini kembali hadir selama 4 hari pada {SITE_CONFIG.dates}.
                     </p>
                 </motion.div>
 
@@ -70,7 +72,7 @@ const About = () => {
                             whileHover={{ y: -10 }}
                             className="bg-wk-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-wk-orange/20 relative overflow-hidden"
                         >
-                            <div className="w-14 h-14 bg-gradient-to-br from-wk-red to-wk-orange rounded-xl flex items-center justify-center mb-4">
+                            <div className="w-14 h-14 bg-gradient-to-br from-wk-gold to-wk-orange rounded-xl flex items-center justify-center mb-4">
                                 <event.icon className="w-7 h-7 text-wk-white" />
                             </div>
                             <h3 className="text-xl font-bold text-wk-darkRed mb-2">{event.title}</h3>

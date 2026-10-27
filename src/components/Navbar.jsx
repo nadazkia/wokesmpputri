@@ -30,6 +30,9 @@ const Navbar = () => {
         name: 'Jadwal',
         href: '#schedule'
     }, {
+        name: 'Tiket',
+        href: '#tickets'
+    }, {
         name: 'Merchandise',
         href: '#merchandise'
     }, {
@@ -55,7 +58,7 @@ const Navbar = () => {
 
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center">
                         {/* <span className="bg-gradient-to-br from-wk-red to-wk-darkRed text-wk-white font-bold text-xl">W</span> */}
-                        <img alt="WOKE26" className="object-cover rounded-lg mix-blend-multiply" src={process.env.PUBLIC_URL + '/img/WOKE26.png'} />
+                        <img alt="WOKE" className="object-cover rounded-lg mix-blend-multiply" src={process.env.PUBLIC_URL + '/img/WOKE.png'} />
                     </div>
                     <span className="text-xl font-bold bg-gradient-to-r from-wk-red to-wk-orange bg-clip-text text-transparent">Wonderkind Festival</span>
                 </motion.div>

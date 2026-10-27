@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import { ArrowRight, Mail } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 const CTA = () => {
     const handleRegister = () => {
@@ -35,7 +36,7 @@ const CTA = () => {
                         <Button
                             size="lg"
                             onClick={handleRegister}
-                            className="bg-wk-gold hover:bg-wk-lightOrange text-wk-darkRed text-lg px-8 py-6 rounded-full font-bold shadow-2xl group transition-all"
+                            className="bg-wk-gold hover:bg-wk-lightOrange hover:text-wk-white text-wk-darkRed text-lg px-8 py-6 rounded-full font-bold shadow-2xl group transition-all"
                         >
                             Daftar Sekarang
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -44,7 +45,7 @@ const CTA = () => {
                             size="lg"
                             variant="outline"
                             className="bg-transparent border-2 border-wk-white text-wk-white hover:bg-wk-white hover:text-wk-darkRed text-lg px-8 py-6 rounded-full font-semibold transition-all"
-                            onClick={() => window.open('mailto:wokesmpputri@dqm.sch.id', '_blank')}
+                            onClick={() => window.open(`mailto:${SITE_CONFIG.officialEmail}`, '_blank')}
                         >
                             <Mail className="mr-2 w-5 h-5" />
                             Hubungi Kami
@@ -58,7 +59,7 @@ const CTA = () => {
                                 key="Instagram"
                                 variant="ghost"
                                 className="text-wk-white hover:bg-wk-white/10 rounded-full hover:text-wk-gold"
-                                onClick={() => window.open(`https://instagram.com/wokefest.smpputri`, '_blank')}
+                                onClick={() => window.open(SITE_CONFIG.socialMedia.instagram, '_blank')}
                             >
                                 Instagram
                             </Button>
@@ -66,7 +67,7 @@ const CTA = () => {
                                 key="Tiktok"
                                 variant="ghost"
                                 className="text-wk-white hover:bg-wk-white/10 rounded-full hover:text-wk-gold"
-                                onClick={() => window.open(`https://www.tiktok.com/@wokefest.smputri`, '_blank')}
+                                onClick={() => window.open(SITE_CONFIG.socialMedia.tiktok, '_blank')}
                             >
                                 Tiktok
                             </Button>
