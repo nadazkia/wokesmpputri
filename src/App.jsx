@@ -21,6 +21,9 @@ import AdminDashboard from "./components/admin/AdminDashboard";
 import GlobalBackground from "./components/common/GlobalBackground";
 import LoadingScreen from "./components/common/LoadingScreen";
 import { getCurrentUser, onAuthStateChange } from "./services/authService";
+import { SITE_CONFIG } from "./config/siteConfig";
+
+
 
 function App() {
   const [isAdminView, setIsAdminView] = useState(() => {
@@ -37,7 +40,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 900);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -102,12 +105,11 @@ function App() {
     <CartProvider>
       <Helmet>
         <title>
-          Wonderkind Festival - Karsa Cendekia, Wujudkan Lokasamgraha | 11-13
-          Februari 2026
+          {SITE_CONFIG.festivalName}  - {SITE_CONFIG.tagline}  | {SITE_CONFIG.dates}
         </title>
         <meta
           name="description"
-          content="Wonderkind Festival 2026: Karsa Cendekia, Wujudkan Lokasamgraha. Timeline: 11-13 Februari 2026. Wonder Competition (SD & SMP) pada 13 Februari. Ikuti 20+ lomba internal dan event umum."
+          content={`${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}: ${SITE_CONFIG.tagline} Timeline: ${SITE_CONFIG.dates}`}
         />
       </Helmet>
 

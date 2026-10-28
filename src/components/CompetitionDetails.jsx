@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Award, FileText, MapPin, Ticket } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 const CompetitionDetails = () => {
     const details = [
@@ -7,11 +8,11 @@ const CompetitionDetails = () => {
             icon: MapPin,
             title: 'Lokasi & Waktu',
             items: [
-                'Lokasi: SMPIT Darul Qur-an Mulia',
-                'Timeline Utama: 21-24 Januari 2027',
-                'Lomba SD dan SMP: 22-23 Januari 2027',
-                'Pra-Event: November-Desember 2026',
-                'Technical Meeting: 10 Januari 2027'
+                `Lokasi: ${SITE_CONFIG.schoolName}`,
+                `Timeline Utama: ${SITE_CONFIG.dates}`,
+                `Lomba SD dan SMP: ${SITE_CONFIG.dates}`,
+                `Pra-Event: ${SITE_CONFIG.praEventDates}`,
+                `Technical Meeting: ${SITE_CONFIG.technicalMeetingDate}`
             ]
         },
         {
@@ -58,7 +59,7 @@ const CompetitionDetails = () => {
                         Detail & Informasi Tiket
                     </h2>
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                        Informasi lengkap mengenai pelaksanaan Wonder Competition (Khusus SD dan SMP) pada 22-23 Januari 2027 dan rangkaian event lainnya.
+                        Informasi lengkap mengenai pelaksanaan Wonder Competition (Khusus SD/MI dan SMP/MTs) dan rangkaian event lainnya.
                     </p>
                 </motion.div>
 

@@ -1,0 +1,23 @@
+Hijau #75644c
+Hijau #7f7c49
+Hijau #b7ab64
+
+Ungu #612d52
+Ungu #b3557c
+
+Pink #de5680
+Pink #fb83a2
+Pink #fc9aa9
+Pink #fcbab3
+
+Cream #fcd395
+
+
+DNS Vercel
+A @ 216.198.79.1
+
+DNS Hostinger
+A @ 153.92.8.148
+
+DNS Record
+AAAA @ 2a02:4780:6:2080:0:253d:8267:3 TTL 1800

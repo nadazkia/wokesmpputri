@@ -31,7 +31,7 @@ const Footer = () => {
                             <a href="#about" className="block text-wk-white/80 hover:text-wk-gold transition-colors">Tentang Event</a>
                             <a href="#categories" className="block text-wk-white/80 hover:text-wk-gold transition-colors">Lomba SD & SMP</a>
                             <a href="#schedule" className="block text-wk-white/80 hover:text-wk-gold transition-colors">Jadwal</a>
-                            <a href="#merchandise" className="block text-wk-white/80 hover:text-wk-gold transition-colors">Tiket & Merch</a>
+                            {/* <a href="#merchandise" className="block text-wk-white/80 hover:text-wk-gold transition-colors">Tiket & Merch</a> */}
                         </nav>
                     </div>
 
@@ -52,8 +52,14 @@ const Footer = () => {
                             </div>
                             <div className="flex items-start">
                                 <Phone className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-wk-gold" />
-                                <a href={`https://wa.me/${SITE_CONFIG.officialWhatsapp}`} target="_blank" rel="noopener noreferrer" className='block text-wk-white/80 hover:text-wk-gold transition-colors'>
-                                    <span className="text-sm">+{SITE_CONFIG.officialWhatsapp}</span>
+                                <a href={`https://wa.me/${SITE_CONFIG.cphumas1}`} target="_blank" rel="noopener noreferrer" className='block text-wk-white/80 hover:text-wk-gold transition-colors'>
+                                    <span className="text-sm">+{SITE_CONFIG.cphumas1} ({SITE_CONFIG.namacphumas1})</span>
+                                </a>
+                            </div>
+                            <div className="flex items-start">
+                                <Phone className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-wk-gold" />
+                                <a href={`https://wa.me/${SITE_CONFIG.cphumas2}`} target="_blank" rel="noopener noreferrer" className='block text-wk-white/80 hover:text-wk-gold transition-colors'>
+                                    <span className="text-sm">+{SITE_CONFIG.cphumas2} ({SITE_CONFIG.namacphumas2})</span>
                                 </a>
                             </div>
                         </div>

@@ -25,8 +25,8 @@ const Categories = () => {
       fee: 'Rp55.000 / peserta',
       color: 'from-wk-red to-pink-500',
       mascot: '/img/maskot/mewarnai.png',
-      bookUrl: 'https://drive.google.com/uc?export=download&id=1Ms6GJhqDsNrbDFZojYZGSXJKUf729l2c',
-      formUrl: `https://wa.me/${SITE_CONFIG.cplomba}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar lomba Mewarnai di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
+      bookUrl: 'https://drive.google.com/uc?export=download&id=1p6Yjj3PJVxvqaGOv9g9d1iV52cf4gI10',
+      formUrl: `https://wa.me/${SITE_CONFIG.cplomba1}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar *lomba Mewarnai* di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
     },
     {
       id: 'mhq',
@@ -39,7 +39,7 @@ const Categories = () => {
       color: 'from-amber-500 to-yellow-500',
       mascot: '/img/maskot/mhq.png',
       bookUrl: 'https://drive.google.com/uc?export=download&id=1MNKmi9QNF5k1ZGYfc4mKsW5Tj0Co9Ilm',
-      formUrl: `https://wa.me/${SITE_CONFIG.cplomba}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar lomba MHQ di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
+      formUrl: `https://wa.me/${SITE_CONFIG.cplomba1}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar *lomba MHQ* di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
 
     },
     {
@@ -53,7 +53,7 @@ const Categories = () => {
       color: 'from-fuchsia-500 to-indigo-500',
       mascot: '/img/maskot/dongeng.png',
       bookUrl: 'https://drive.google.com/uc?export=download&id=1vLv_khEquEWS-FYHPf3-GgpYl0yjVn-o',
-      formUrl: `https://wa.me/${SITE_CONFIG.cplomba}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar lomba Dongeng di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
+      formUrl: `https://wa.me/${SITE_CONFIG.cplomba1}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar *lomba Dongeng* di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
     },
     {
       id: 'lccu',
@@ -66,7 +66,7 @@ const Categories = () => {
       color: 'from-rose-500 to-purple-600',
       mascot: '/img/maskot/lccu.png',
       bookUrl: 'https://drive.google.com/uc?export=download&id=1cFJ0G9MOUFvpoepUTO2Iv23Pos8dCAYw',
-      formUrl: `https://wa.me/${SITE_CONFIG.cplomba}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar lomba LCCU di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
+      formUrl: `https://wa.me/${SITE_CONFIG.cplomba1}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar *lomba LCCU* di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
 
     },
     {
@@ -80,7 +80,7 @@ const Categories = () => {
       color: 'from-wk-darkRed to-purple-900',
       mascot: '/img/maskot/pantonim.png',
       bookUrl: 'https://drive.google.com/uc?export=download&id=1xTaC0mQ08FbKP3wk6tZjPfUA1xKbLTUs',
-      formUrl: `https://wa.me/${SITE_CONFIG.cplomba}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar lomba Pantonim di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
+      formUrl: `https://wa.me/${SITE_CONFIG.cplomba1}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar *lomba Pantonim* di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
     },
     {
       id: 'tari-tradisional-sd',
@@ -93,7 +93,7 @@ const Categories = () => {
       color: 'from-wk-gold to-wk-orange',
       mascot: '/img/maskot/tari-tradisional.png',
       bookUrl: 'https://drive.google.com/uc?export=download&id=1Z9gv8DjgW5TQgkCjDPsRnNKI0OVYXWre',
-      formUrl: `https://wa.me/${SITE_CONFIG.cplomba}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar lomba Tari Tradisional SD di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
+      formUrl: `https://wa.me/${SITE_CONFIG.cplomba1}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar *lomba Tari Tradisional SD* di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
 
     },
     {
@@ -106,8 +106,8 @@ const Categories = () => {
       fee: 'Rp280.000 / tim',
       color: 'from-wk-gold to-wk-orange',
       mascot: '/img/maskot/basket.png',
-      bookUrl: 'https://drive.google.com/uc?export=download&id=1Ms6GJhqDsNrbDFZojYZGSXJKUf729l2c',
-      formUrl: `https://wa.me/${SITE_CONFIG.cplomba}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar lomba Basket di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
+      bookUrl: 'https://drive.google.com/uc?export=download&id=16Vc8WqFmj2tSOaPAHnrpl3r8cElp2_X-',
+      formUrl: `https://wa.me/${SITE_CONFIG.cplomba1}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar *lomba Basket* di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
 
     },
     {
@@ -121,7 +121,7 @@ const Categories = () => {
       color: 'from-wk-gold to-wk-orange',
       mascot: '/img/maskot/paskibra.png',
       bookUrl: 'https://drive.google.com/uc?export=download&id=1dIqUWmnSHjBtk15ZrFv38F9tbGAi6fBG',
-      formUrl: `https://wa.me/${SITE_CONFIG.cplomba}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar lomba Paskibra di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
+      formUrl: `https://wa.me/${SITE_CONFIG.cplomba1}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar *lomba Paskibra* di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
 
     },
     {
@@ -135,7 +135,7 @@ const Categories = () => {
       color: 'from-wk-gold to-wk-orange',
       mascot: '/img/maskot/tari-tradisional.png',
       bookUrl: 'https://drive.google.com/uc?export=download&id=1hga9gchR2XjdmnK9AddIDTRZrC7FaJfc',
-      formUrl: `https://wa.me/${SITE_CONFIG.cplomba}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar lomba Tari Tradisional SMP/MTs di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
+      formUrl: `https://wa.me/${SITE_CONFIG.cplomba1}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar *lomba Tari Tradisional SMP/MTs* di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
 
     },
     {
@@ -148,8 +148,8 @@ const Categories = () => {
       fee: 'Rp280.000 / tim',
       color: 'from-wk-gold to-wk-orange',
       mascot: '/img/maskot/pramuka.png',
-      bookUrl: 'https://drive.google.com/uc?export=download&id=16Vc8WqFmj2tSOaPAHnrpl3r8cElp2_X-',
-      formUrl: `https://wa.me/${SITE_CONFIG.cplomba}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar lomba Pramuka di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
+      bookUrl: 'https://drive.google.com/uc?export=download&id=1Ms6GJhqDsNrbDFZojYZGSXJKUf729l2c',
+      formUrl: `https://wa.me/${SITE_CONFIG.cplomba1}?text=${encodeURIComponent(`Halo kak Nova, saya ingin mendaftar *lomba Pramuka* di ${SITE_CONFIG.festivalName} ${SITE_CONFIG.edition}. Mohon informasi lebih lanjut. Terima kasih!`)}`
     }
   ];
 

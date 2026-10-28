@@ -67,7 +67,7 @@ const Navbar = () => {
                         {/* <span className="bg-gradient-to-br from-wk-red to-wk-darkRed text-wk-white font-bold text-xl">W</span> */}
                         <img alt="WOKE" className="object-cover rounded-lg mix-blend-multiply" src={process.env.PUBLIC_URL + '/img/WOKE.png'} />
                     </div>
-                    <span className="text-xl font-bold bg-gradient-to-r from-wk-red to-wk-orange bg-clip-text text-transparent">Wonderkind Festival</span>
+                    <span className="text-xl font-bold bg-gradient-to-r from-wk-lightOrange to-wk-red bg-clip-text text-transparent">Wonderkind Festival</span>
                 </motion.div>
 
                 <div className="hidden md:flex items-center space-x-8">

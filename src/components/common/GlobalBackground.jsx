@@ -35,7 +35,7 @@ const GlobalBackground = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-15"
         style={{
-          backgroundImage: "url('/img/backgrounf.jpeg')",
+          backgroundImage: "url('/img/background.jpeg')",
         }}
       />
 

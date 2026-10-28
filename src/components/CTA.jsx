@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import { ArrowRight, Mail } from 'lucide-react';
+import { ArrowRight, Phone } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
 
 const CTA = () => {
@@ -28,7 +28,7 @@ const CTA = () => {
                     <h2 className="text-4xl md:text-5xl font-bold text-wk-white mb-6">
                         Siap Bergabung dengan Wonderkind Festival?
                     </h2>
-                    <p className="text-xl text-wk-lightOrange mb-10 max-w-2xl mx-auto">
+                    <p className="text-xl text-wk-textgelap mb-10 max-w-2xl mx-auto">
                         Daftarkan diri Anda sekarang dan raih kesempatan untuk menjadi bagian dari kompetisi terbesar tahun ini!
                     </p>
 
@@ -45,15 +45,15 @@ const CTA = () => {
                             size="lg"
                             variant="outline"
                             className="bg-transparent border-2 border-wk-white text-wk-white hover:bg-wk-white hover:text-wk-darkRed text-lg px-8 py-6 rounded-full font-semibold transition-all"
-                            onClick={() => window.open(`mailto:${SITE_CONFIG.officialEmail}`, '_blank')}
+                            onClick={() => window.open(`https://wa.me/${SITE_CONFIG.cphumas1}`, '_blank')}
                         >
-                            <Mail className="mr-2 w-5 h-5" />
+                            <Phone className="mr-2 w-5 h-5" />
                             Hubungi Kami
                         </Button>
                     </div>
 
                     <div className="mt-12 pt-8 border-t border-wk-white/20">
-                        <p className="text-wk-lightOrange mb-4">Ikuti kami di media sosial untuk update terbaru!</p>
+                        <p className="text-wk-textgelap mb-4">Ikuti kami di media sosial untuk update terbaru!</p>
                         <div className="flex justify-center gap-4">
                             <Button
                                 key="Instagram"

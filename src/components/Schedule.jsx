@@ -76,9 +76,9 @@ const Schedule = () => {
             Jadwal Rangkaian Acara
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            {SITE_CONFIG.festivalName} dilaksanakan 3 hari pada{" "}
+            {SITE_CONFIG.festivalName} dilaksanakan 4 hari pada{" "}
             {SITE_CONFIG.dates}. Lomba eksternal untuk SD/MI dan SMP/MTs
-            dilaksanakan pada 21-22 Januari 2027.
+            dilaksanakan pada 20-23 Januari 2027.
           </p>
         </motion.div>
         <img

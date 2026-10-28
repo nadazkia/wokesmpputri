@@ -149,16 +149,16 @@ const SponsorSection = () => {
                     <h3 className="text-3xl font-bold mb-4">
                         Tertarik Menjadi Sponsor Wonderkind Festival?
                     </h3>
-                    <p className="max-w-2xl mx-auto mb-8 text-wk-lightOrange">
+                    <p className="max-w-2xl mx-auto mb-8 text-wk-textgelap">
                         Dapatkan exposure brand ke ratusan peserta, orang tua, dan institusi
                         pendidikan melalui berbagai paket sponsorship.
                     </p>
                     <Button
                         asChild
-                        className="bg-wk-gold text-wk-darkRed hover:bg-wk-lightOrange font-bold px-10 py-6 rounded-xl text-lg"
+                        className="bg-wk-gold text-wk-darkRed hover:bg-wk-lightOrange hover:text-wk-white font-bold px-10 py-6 rounded-xl text-lg"
                     >
                         <a
-                            href={`https://wa.me/${SITE_CONFIG.officialWhatsapp}?text=${encodeURIComponent('Saya tertarik untuk menjadi sponsor Wonderkind Festival')}`}
+                            href={`https://wa.me/${SITE_CONFIG.cpsponsor1}?text=${encodeURIComponent('Saya tertarik untuk menjadi sponsor Wonderkind Festival')}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >

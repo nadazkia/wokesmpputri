@@ -1,40 +1,30 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Users, Heart, BookOpen, Mic, Music, Ticket } from 'lucide-react';
+import { Trophy, Users, Heart, Music, Ticket } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
 
 
 const About = () => {
     const mainEvents = [
         {
-            icon: Heart,
-            title: 'Wonderkindness',
-            description: 'Pra-event implementasi nyata, inisiatif, dan empati kemanusiaan untuk menjawab problematika masyarakat.'
-        },
-        {
             icon: Trophy,
             title: 'Wonder Competition',
-            description: 'Kompetisi Eksternal Tingkat SD dan SMP dilaksanakan khusus pada 21-22 Januari 2027.'
+            description: `Lomba tingkat SD/MI dan SMP/MTs yang diadakan untuk mengasah kreativitas, kemampuan berpikir kritis, dan keterampilan peserta dalam berbagai bidang. Lomba ini akan dilaksanakan pada ${SITE_CONFIG.dates}.`
+        },
+        {
+            icon: Heart,
+            title: 'Wonderkindness',
+            description: 'Pra-event berupa implementasi nyata, inisiatif, dan empati kemanusiaan untuk menjawab problematika masyarakat yang berfokus pada aksi sosial, kegiatan ini juga menumbuhkan rasa kepedulian yang tinggi dan menyalurkan kebaikan yang bertujuan untuk memberikan manfaat bagi masyarakat sekitar'
         },
         {
             icon: Users,
             title: 'Wonder Talk',
-            description: 'Talkshow inspiratif bersama tokoh nasional. Tiket terbuka untuk masyarakat umum.'
-        },
-        {
-            icon: BookOpen,
-            title: "Wonder Qur'an",
-            description: "Kajian Qur'an bersama penghafal Quran untuk menambah wawasan dan motivasi terhadap Al-Qur'an. Tiket penonton tersedia untuk umum."
-        },
-        {
-            icon: Mic,
-            title: 'Wonder Preacher',
-            description: "Lomba MHQ untuk tingkat SD. Dilaksanakan pada 21-22 Januari 2027."
+            description: 'Sesi diskusi dan berbagi pengalaman dengan narasumber inspiratif yang akan membahas topik-topik menarik seputar pendidikan, kreativitas, dan pengembangan diri.'
         },
         {
             icon: Music,
             title: 'Wonder Concert',
-            description: 'Konser Amal spektakuler yang akan dilaksanakan pada 23 Januari 2027.'
+            description: 'Konser Amal berbasis musik dan kreativitas yang menggalang solidaritas generasi muda untuk Palestina yang akan dilaksanakan pada 23 Januari 2027.'
         }
     ];
 
