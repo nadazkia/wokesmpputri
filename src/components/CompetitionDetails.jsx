@@ -46,7 +46,7 @@ const CompetitionDetails = () => {
     ];
 
     return (
-        <section className="py-20 bg-gradient-to-b from-wk-white via-wk-lightOrange/20 to-wk-white">
+        <section className="py-20 bg-gradient-to-b from-transparent via-wk-lightOrange/50 to-wk-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

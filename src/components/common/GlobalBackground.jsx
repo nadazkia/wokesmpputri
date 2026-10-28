@@ -33,9 +33,9 @@ const GlobalBackground = () => {
     >
       {/* 1. Gambar Background Global */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-15"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-80"
         style={{
-          backgroundImage: "url('/img/background.jpeg')",
+          backgroundImage: `url(${process.env.PUBLIC_URL + '/img/background.jpeg'})`
         }}
       />
 

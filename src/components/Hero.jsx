@@ -79,7 +79,7 @@ const Hero = () => {
                     <Button
                         size="lg"
                         onClick={handleRegister}
-                        className="bg-wk-textgelap hover:bg-wk-orange text-wk-white hover:text-wk-white text-lg px-8 py-6 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 group"
+                        className="bg-wk-gold hover:bg-wk-textgelap text-wk-darkRed hover:text-wk-white text-lg px-8 py-6 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 group"
                     >
                         Daftar Lomba
                         <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -88,7 +88,7 @@ const Hero = () => {
                         size="lg"
                         onClick={handleBuy}
                         variant="outline"
-                        className="bg-transparent border-2 border-wk-textgelap text-wk-textgelap hover:bg-wk-white hover:text-wk-red text-lg px-8 py-6 rounded-full font-semibold transition-all duration-300"
+                        className="bg-transparent border-2 border-wk-red text-wk-red hover:bg-wk-white hover:text-wk-textgelap hover:border-wk-textgelap text-lg px-8 py-6 rounded-full font-semibold transition-all duration-300"
                     >
                         Beli Tiket Umum
                     </Button>
@@ -102,19 +102,19 @@ const Hero = () => {
                 >
                     <div className="flex flex-wrap justify-center gap-8 text-wk-white">
                         <div className="text-center">
-                            <p className="text-4xl font-bold text-wk-orange">1500+</p>
+                            <p className="text-4xl font-bold text-[#de5680]">1500+</p>
                             <p className="text-wk-lightOrange">Audiences</p>
                         </div>
                         <div className="text-center">
-                            <p className="text-4xl font-bold text-wk-orange">60+</p>
+                            <p className="text-4xl font-bold text-[#de5680]">60+</p>
                             <p className="text-wk-lightOrange">Sekolah Terdaftar</p>
                         </div>
                         <div className="text-center">
-                            <p className="text-4xl font-bold text-wk-orange">4 Hari</p>
+                            <p className="text-4xl font-bold text-[#de5680]">4 Hari</p>
                             <p className="text-wk-lightOrange">Full Event</p>
                         </div>
                         <div className="text-center">
-                            <p className="text-4xl font-bold text-wk-orange">Open</p>
+                            <p className="text-4xl font-bold text-[#de5680]">Open</p>
                             <p className="text-wk-lightOrange">Tiket Umum</p>
                         </div>
                     </div>
