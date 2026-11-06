@@ -31,7 +31,7 @@ const Schedule = () => {
             events: [
                 {
                     time: '07.00 - 10.00',
-                    activity: 'Grand Opening Wonderkind 2026',
+                    activity: 'Grand Opening Wonderkind Festival',
                     location: 'Main Stage',
                     description: 'Seremoni pembukaan resmi festival yang dimeriahkan oleh sambutan, penampilan seni, dan simbolis dimulainya acara.'
                 },

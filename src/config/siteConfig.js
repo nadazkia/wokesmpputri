@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   tagline: "Cakrawala Perubahan, Arah Peradaban",
   edition: "2027",
   dates: "20-23 Januari 2027",
-  praEventDates: "November-Desember 2026",
+  praEventDates: "November-Desember 2027",
   technicalMeetingDate: "10 Januari 2027",
   schoolName: "SMPIT Darul Qur-an Mulia",
   location: "Pabuaran, Gunung Sindur, Kab. Bogor, Jawa Barat",
