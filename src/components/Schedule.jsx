@@ -6,8 +6,8 @@ import { SITE_CONFIG } from "../config/siteConfig";
 const Schedule = () => {
     const scheduleData = [
         {
-            day: 'Pra-Event (Oktober-Desember 2026)',
-            theme: 'Wonderkindness Week',
+            day: 'Pra-Event (November-Desember 2026)',
+            theme: 'Wonderwarmth Week',
             isHighlight: true,
             events: [
                 {
@@ -30,13 +30,19 @@ const Schedule = () => {
             isHighlight: false,
             events: [
                 {
-                    time: '07.00 - 08.30',
+                    time: '07.00 - 10.00',
                     activity: 'Grand Opening Wonderkind 2026',
                     location: 'Main Stage',
                     description: 'Seremoni pembukaan resmi festival yang dimeriahkan oleh sambutan, penampilan seni, dan simbolis dimulainya acara.'
                 },
                 {
-                    time: '10.00 - 15.00',
+                    time: '12.00 - 17.00',
+                    activity: 'Eksternal Competitions',
+                    location: 'All Venues',
+                    description: 'Kompetisi tingkat SD dan SMP se-eksternal yang mempertemukan peserta dari berbagai sekolah untuk memperebutkan gelar juara.'
+                },
+                {
+                    time: '20.00 - 22.00',
                     activity: 'Internal Competitions',
                     location: 'All Venues',
                     description: 'Ajang unjuk bakat dan kompetisi seru antar internal peserta untuk memperebutkan tiket ke babak selanjutnya.'
@@ -49,54 +55,54 @@ const Schedule = () => {
             isHighlight: false,
             events: [
                 {
-                    time: '08.00 - 11.30',
-                    activity: 'Wonder Talk (Tiket Umum)',
+                    time: '07.00 - 09.00',
+                    activity: 'Wonder Talk',
                     location: 'Main Stage',
                     description: 'Sesi inspiratif dan bincang-bincang interaktif bersama narasumber/pembicara hebat yang terbuka untuk umum.'
                 },
                 {
-                    time: '13.00 - 15.30',
-                    activity: 'Wonder Preacher (Tiket Umum)',
+                    time: '12.00 - 14.00',
+                    activity: 'External & Internal Competitions',
                     location: 'Main Stage',
-                    description: 'Tausiyah atau siraman rohani penuh makna untuk memperkuat motivasi spiritual peserta dan pengunjung.'
+                    description: 'Lomba tingkat SD dan SMP dan lomba internal yang mempertemukan peserta dari berbagai sekolah untuk memperebutkan gelar juara.'
                 },
             ]
         },
         {
             day: 'Hari 3 - 22 Januari 2027',
-            theme: 'Wonder Competition (SD) & Celebration',
+            theme: 'Wonder Competition & Celebration',
             isHighlight: false,
             events: [
                 {
                     time: '07.00 - 15.00',
-                    activity: 'Wonder Competition (Lomba SD Eksternal)',
+                    activity: 'External Competitions',
                     location: 'All Venues',
-                    description: 'Kompetisi seru tingkat Sekolah Dasar (SD) se-eksternal yang mempertemukan talenta-talenta muda berbakat.'
+                    description: 'Kompetisi tingkat SD dan SMP yang mempertemukan talenta-talenta muda berbakat.'
                 },
                 {
-                    time: '16.00 - 17.30',
+                    time: '07.00 - 09.00',
+                    activity: 'Wonder Talk (Tiket Umum)',
+                    location: 'All Venues',
+                    description: 'Sesi inspiratif dan bincang-bincang interaktif bersama narasumber hebat yang terbuka untuk umum.'
+                },
+                {
+                    time: '15.00 - 17.30',
                     activity: 'Awarding Ceremony',
                     location: 'Main Stage',
                     description: 'Momen penganugerahan trofi, penghargaan, dan apresiasi bagi para juara dari berbagai cabang perlombaan.'
                 },
-                {
-                    time: '19.30 - 22.00',
-                    activity: 'Grand Closing Wonderkind 2026',
-                    location: 'Main Stage',
-                    description: 'Puncak perayaan penutupan festival dengan sajian hiburan spektakuler untuk seluruh hadirin.'
-                }
             ]
         },
         {
             day: 'Closing Ceremony - 23 Januari 2027',
-            theme: 'Konser Amal Palestina',
+            theme: 'Konser Amal',
             isHighlight: true,
             events: [
                 {
                     time: '07.00 - 15.00',
-                    activity: 'Penggalangan hadiah untuk Palestina',
+                    activity: 'Penggalangan Dana & Bantuan Kemanusiaan',
                     location: 'On Progress',
-                    description: 'Aksi solidaritas dan penggalangan dana/bantuan kemanusiaan khusus untuk saudara-saudara kita di Palestina.'
+                    description: 'Kegiatan penggalangan dana dan bantuan kemanusiaan untuk mendukung program sosial dan kemanusiaan yang bermanfaat bagi masyarakat.'
                 },
             ]
         }
